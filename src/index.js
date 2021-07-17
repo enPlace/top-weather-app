@@ -1,8 +1,7 @@
-/* eslint-disable no-console */
-import './style.css';
+import "./style.css";
 
 function newFunction() {
-  console.log('hello');
+  console.log("hello");
 }
 
 newFunction();
