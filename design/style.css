@@ -1,0 +1,124 @@
+:root {
+  --blue: #0f4274;
+  --white: #ffffff;
+  --dark: rgb(65, 65, 65);
+}
+html {
+  width: 100%;
+  height: 100%;
+  font-family: sans-serif;
+}
+body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--blue);
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  grid-template-rows: repeat(12, 1fr);
+  color:ghostwhite;
+}
+body div{
+    
+}
+.main-weather{
+    background-color: var(--dark);
+    grid-column: 1/13;
+    grid-row: 1/10;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+   
+}
+form{
+    grid-column: 2/12;
+    grid-row: 1/2;
+    justify-content: center;
+    align-items: center;
+}
+form input{
+    width: 97%;
+    height: 70%;
+}
+.current-temp-data{
+    grid-row: 2/7;
+    grid-column: 1/6;
+    padding: 4%;
+
+}
+.main-highlow{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+.current-temp{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 6em;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    
+}
+.c{
+    font-size: .5em
+}
+.feels-like{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-conditions{
+    grid-row:2/7;
+    grid-column: 8/13;
+}
+.main-conditions div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-icon{
+    margin-top: 30px;
+}
+.city-name{
+    grid-row:7/9;
+    grid-column: 1/10;
+    font-size: 1.3em;
+    padding: 2%;
+    display: flex;
+    align-items: center;
+}
+.hourly-forecast{
+    grid-row:9/13;
+    grid-column: 1/13;
+    display: flex;
+    overflow: scroll;
+    align-items: center;
+}
+.hour-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid black;
+    border-radius: 4px;;
+    margin:10px;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 96%;
+    min-width: 70px;
+}
+.small-icon{
+    width:60px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+.hour-precip{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+
+
+  
+    font-size: .8em;
+}

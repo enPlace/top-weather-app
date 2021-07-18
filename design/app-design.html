@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>App Design</title>
+  </head>
+  <body>
+    <div class="main-weather" id="main-weather">
+      <form autocomplete="off" action="" id="search-form">
+        <input type="text" id="search-bar" />
+        <div id="auto-complete"></div>
+      </form>
+      <div class="current-temp-data" id="current-temp-data">
+        <div class="main-highlow" id="main-highlow">
+          <div class="current-high" id="current-high">Day: 12°</div>
+          <div class="current-low" id="current-low">Night: 1°</div>
+        </div>
+        <div class="current-temp" id="current-temp">
+          7<span class="c" id="c">°C</span>
+        </div>
+        <div class="feels-like" id="feels-like">Feels like 7°C</div>
+      </div>
+      <div class="city-name" id="city-name">Mendoza, Mendoza Province, AR</div>
+      <div class="main-conditions" id="main-conditions">
+        <div class="main-icon" id="main-icon">
+          <img
+            id="icon-img"
+            src="http://openweathermap.org/img/wn/01d@2x.png"
+            alt=""
+          />
+        </div>
+        <div class="main-description" id="main-description">Clear Sky</div>
+      </div>
+      <div class="hourly-forecast" id="hourly-forecast">
+        <div class="hour-info">
+          <div class="hour-temp">4°</div>
+          <div class="hour-icon">
+            <img
+              class="small-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="hour-precip">
+            <div>precip:</div>
+            <div>50%</div>
+          </div>
+          <div class="hour-time">22:00</div>
+        </div>
+        <div class="hour-info">
+          <div class="hour-temp">4°</div>
+          <div class="hour-icon">
+            <img
+              class="small-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="hour-precip">
+            <div>precip:</div>
+            <div>50%</div>
+          </div>
+          <div class="hour-time">22:00</div>
+        </div>
+        <div class="hour-info">
+          <div class="hour-temp">4°</div>
+          <div class="hour-icon">
+            <img
+              class="small-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="hour-precip">
+            <div>precip:</div>
+            <div>50%</div>
+          </div>
+          <div class="hour-time">22:00</div>
+        </div>
+        <div class="hour-info">
+          <div class="hour-temp">4°</div>
+          <div class="hour-icon">
+            <img
+              class="small-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="hour-precip">
+            <div>precip:</div>
+            <div>50%</div>
+          </div>
+          <div class="hour-time">22:00</div>
+        </div>
+        <div class="hour-info">
+          <div class="hour-temp">4°</div>
+          <div class="hour-icon">
+            <img
+              class="small-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="hour-precip">
+            <div>precip:</div>
+            <div>50%</div>
+          </div>
+          <div class="hour-time">22:00</div>
+        </div>
+        <div class="hour-info">
+          <div class="hour-temp">4°</div>
+          <div class="hour-icon">
+            <img
+              class="small-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="hour-precip">
+            <div>precip:</div>
+            <div>50%</div>
+          </div>
+          <div class="hour-time">22:00</div>
+        </div>
+        <div class="hour-info">
+          <div class="hour-temp">4°</div>
+          <div class="hour-icon">
+            <img
+              class="small-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="hour-precip">
+            <div>precip:</div>
+            <div>50%</div>
+          </div>
+          <div class="hour-time">22:00</div>
+        </div>
+        <div class="hour-info">
+          <div class="hour-temp">4°</div>
+          <div class="hour-icon">
+            <img
+              class="small-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="hour-precip">
+            <div>precip:</div>
+            <div>50%</div>
+          </div>
+          <div class="hour-time">22:00</div>
+        </div>
+        <div class="hour-info">
+          <div class="hour-temp">4°</div>
+          <div class="hour-icon">
+            <img
+              class="small-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="hour-precip">
+            <div>precip:</div>
+            <div>50%</div>
+          </div>
+          <div class="hour-time">22:00</div>
+        </div>
+        <div class="hour-info">
+          <div class="hour-temp">4°</div>
+          <div class="hour-icon">
+            <img
+              class="small-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="hour-precip">
+            <div>precip:</div>
+            <div>50%</div>
+          </div>
+          <div class="hour-time">22:00</div>
+        </div>
+        <div class="hour-info">
+          <div class="hour-temp">4°</div>
+          <div class="hour-icon">
+            <img
+              class="small-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="hour-precip">
+            <div>precip:</div>
+            <div>50%</div>
+          </div>
+          <div class="hour-time">22:00</div>
+        </div>
+        <div class="hour-info">
+          <div class="hour-temp">4°</div>
+          <div class="hour-icon">
+            <img
+              class="small-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="hour-precip">
+            <div>precip:</div>
+            <div>50%</div>
+          </div>
+          <div class="hour-time">22:00</div>
+        </div>
+        <div class="hour-info">
+          <div class="hour-temp">4°</div>
+          <div class="hour-icon">
+            <img
+              class="small-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="hour-precip">
+            <div>precip:</div>
+            <div>50%</div>
+          </div>
+          <div class="hour-time">22:00</div>
+        </div>
+        <div class="hour-info">
+          <div class="hour-temp">4°</div>
+          <div class="hour-icon">
+            <img
+              class="small-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="hour-precip">
+            <div>precip:</div>
+            <div>50%</div>
+          </div>
+          <div class="hour-time">22:00</div>
+        </div>
+        <div class="hour-info">
+          <div class="hour-temp">4°</div>
+          <div class="hour-icon">
+            <img
+              class="small-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="hour-precip">
+            <div>precip:</div>
+            <div>50%</div>
+          </div>
+          <div class="hour-time">22:00</div>
+        </div>
+        <div class="hour-info">
+          <div class="hour-temp">4°</div>
+          <div class="hour-icon">
+            <img
+              class="small-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="hour-precip">
+            <div>precip:</div>
+            <div>50%</div>
+          </div>
+          <div class="hour-time">22:00</div>
+        </div>
+        <div class="hour-info">
+          <div class="hour-temp">4°</div>
+          <div class="hour-icon">
+            <img
+              class="small-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt=""
+            />
+          </div>
+          <div class="hour-precip">
+            <div>precip:</div>
+            <div>50%</div>
+          </div>
+          <div class="hour-time">22:00</div>
+        </div>
+        
+      </div>
+    </div>
+
+    <script>
+      //for google places searchbar
+      function initMap() {
+        const input = document.getElementById("search-bar");
+        const options = { types: ["geocode"] };
+        const autoComplete = new google.maps.places.Autocomplete(
+          input,
+          options
+        );
+      }
+    </script>
+    <script
+      async=""
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2WmC02FJRh47UlX3VGyBpLFKz6Mx-qCw&libraries=places&callback=initMap"
+    ></script>
+  </body>
+</html>
