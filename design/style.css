@@ -1,7 +1,7 @@
 :root {
-  --blue: #0f4274;
+  --blue: #051f38;
   --white: #ffffff;
-  --dark: rgb(65, 65, 65);
+  --dark: rgb(48, 47, 47);
 }
 html {
   width: 100%;
@@ -9,116 +9,154 @@ html {
   font-family: sans-serif;
 }
 body {
+
   width: 100%;
   height: 100%;
   background-color: var(--blue);
   display: grid;
-  grid-template-columns: repeat(12,1fr);
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12,1fr);
+  color: ghostwhite;
+}
+body div {
+}
+.main-weather {
+  position: fixed;
+  height: 79%;
+  background-color: var(--dark);
+  grid-column: 1/13;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
-  color:ghostwhite;
+  padding: 20px;
 }
-body div{
-    
+form {
+  grid-column: 2/12;
+  grid-row: 1/2;
+  justify-content: center;
+  align-items: center;
 }
-.main-weather{
-    background-color: var(--dark);
-    grid-column: 1/13;
-    grid-row: 1/10;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 1fr);
-   
+form input {
+  width: 97%;
+  height: 70%;
 }
-form{
-    grid-column: 2/12;
-    grid-row: 1/2;
-    justify-content: center;
-    align-items: center;
+.current-temp-data {
+  grid-row: 2/7;
+  grid-column: 1/6;
+  padding: 4%;
 }
-form input{
-    width: 97%;
-    height: 70%;
+.main-highlow {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
 }
-.current-temp-data{
-    grid-row: 2/7;
-    grid-column: 1/6;
-    padding: 4%;
+.current-temp {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 6em;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.c {
+  font-size: 0.5em;
+}
+.feels-like {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-conditions {
+  grid-row: 2/7;
+  grid-column: 8/13;
+}
+.main-conditions div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-icon {
+  margin-top: 30px;
+}
+.city-name {
+  grid-row: 7/9;
+  grid-column: 1/10;
+  font-size: 1.3em;
+  padding: 2%;
+  display: flex;
+  align-items: center;
+}
+.hourly-forecast {
+  grid-row: 9/13;
+  grid-column: 1/13;
+  display: flex;
+  overflow: scroll;
+  align-items: center;
+}
+.hour-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 96%;
+  min-width: 70px;
+}
+.small-icon {
+  width: 60px;
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+.hour-precip {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+}
 
-}
-.main-highlow{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 15px;
-}
-.current-temp{
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    font-size: 6em;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    
-}
-.c{
-    font-size: .5em
-}
-.feels-like{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.main-conditions{
-    grid-row:2/7;
-    grid-column: 8/13;
-}
-.main-conditions div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.main-icon{
-    margin-top: 30px;
-}
-.city-name{
-    grid-row:7/9;
-    grid-column: 1/10;
-    font-size: 1.3em;
-    padding: 2%;
-    display: flex;
-    align-items: center;
-}
-.hourly-forecast{
-    grid-row:9/13;
-    grid-column: 1/13;
-    display: flex;
-    overflow: scroll;
-    align-items: center;
-}
-.hour-info{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    border: 1px solid black;
-    border-radius: 4px;;
-    margin:10px;
-    margin-top: 0;
-    margin-bottom: 0;
-    height: 96%;
-    min-width: 70px;
-}
-.small-icon{
-    width:60px;
-    margin-top: -10px;
-    margin-bottom: -10px;
-}
-.hour-precip{
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
+/* *****************+ */
 
+.weekly-forecast{
+    z-index: 10;
+  grid-row: 11/13;
+  grid-column: 1/13;
+}
+#current-conditions {
+  margin-top: -3px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.day-forecast {
+    border-top: 1px solid black;
+  margin-top: 0px;
+  background-color: rgba(17, 16, 16, 0.953);
+  backdrop-filter: blur(6px);
+    color:white;
+  padding: 10px;
+}
 
-  
-    font-size: .8em;
+.day-overview {
+  display: flex;
+  justify-content: space-around;
+}
+.day-name {
+  font-size: 1.3em;
+}
+
+.day-overview-right {
+  display: flex;
+  align-items: center;
+}
+
+.day-details li {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  padding-right: 10%;
+  padding-left: 10%;
 }
