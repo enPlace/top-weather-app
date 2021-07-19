@@ -25,3 +25,5 @@ Getting the info:
     -google places api for search bar
     -the open weather api doesn't have a good search(typing brooklyn will return brooklyn OH, for instance), so I'll use a geocoding api to get specific location data from search. 
     ^^This will also help with user mispelling, requiring users to enter correct info. 
+
+
