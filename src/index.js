@@ -1,5 +1,6 @@
 import "./style.css";
-import { geocode, getWeather, getCurrentWeather } from "./forecast";
+import { geocode, getWeather } from "./forecast";
+import { populateHourly } from "./main-weather";
 
 const searchForm = document.getElementById("search-form");
 const searchBar = document.getElementById("search-bar");
@@ -13,4 +14,5 @@ searchForm.addEventListener("submit", async (e) => {
   console.log(latitude, longitude)
   const weatherData = await getWeather(latitude, longitude)
   console.log(weatherData)
+  populateHourly(weatherData)
 });

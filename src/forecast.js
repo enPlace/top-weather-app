@@ -2,7 +2,7 @@ import { weatherAPI, geocodingAPI } from "./config";
 
 // contains scripts for communicating with APIs and formating data.
 
-¿
+
 const geocode = async (searchText) => {
   //returns an object with latitude and longitude information from search text
   const URL = `http://api.positionstack.com/v1/forward?access_key=${geocodingAPI}&query=${searchText}`;
@@ -34,7 +34,6 @@ const getWeather = async (lat, lon) => {
     throw Error(response.status);
   }
   const data = await response.json();
-  weather = data;
   return data;
 };
 
