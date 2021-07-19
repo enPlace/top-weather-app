@@ -5,5 +5,25 @@
     <title>Weather App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"><script defer src="bundle.js"></script></head>
   <body>
+    <form autocomplete="off" action="" id="search-form">
+      <input type="text" id="search-bar" />
+      <div id="auto-complete"></div>
+    </form>
+
+    <script>
+      //for google places searchbar
+      function initMap() {
+        const input = document.getElementById("search-bar");
+        const options = { types: ["geocode"] };
+        const autoComplete = new google.maps.places.Autocomplete(
+          input,
+          options
+        );
+      }
+    </script>
+    <script
+      async=""
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2WmC02FJRh47UlX3VGyBpLFKz6Mx-qCw&libraries=places&callback=initMap"
+    ></script>
   </body>
 </html>
