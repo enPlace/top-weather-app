@@ -11,7 +11,7 @@ function newHourInfo(hourlyObj) {
 
   const temp = document.createElement("div");
   temp.classList.add("hour-temp");
-  temp.textContent = `${hourlyObj.temp}°`;
+  temp.textContent = `${Math.floor(hourlyObj.temp/1)}°`;
   hourInfo.appendChild(temp);
 
   const iconDiv = document.createElement("div");
