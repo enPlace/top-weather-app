@@ -3,13 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title>Weather App</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><script defer src="bundle.js"></script></head>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><script defer src="bundle.js"></script>
+  <link rel="stylesheet" href="reset.css">
+</head>
   <body>
+    <div class="main-weather" id="main-weather">
     <form autocomplete="off" action="" id="search-form">
       <input type="text" id="search-bar" />
       <div id="auto-complete"></div>
     </form>
     <div class="hourly-forecast" id="hourly-forecast"></div>
+  </div>
 
     <script>
       //for google places searchbar
