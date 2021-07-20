@@ -12,15 +12,15 @@ searchForm.addEventListener("submit", async (e) => {
     Math.floor(geocodeData.latitude * 100) / 100,
     Math.floor(geocodeData.longitude * 100) / 100
   );
-  console.log(weatherData)
-  populateMain(weatherData)
+  console.log(weatherData);
+  populateMain(weatherData);
 });
 
-function removeChildren(parent){
+function removeChildren(parent) {
   //removes all children of an element
-  while(parent.firstChild){
-      parent.removeChild(parent.firstChild)
-  };
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
 }
 
-export { removeChildren }
+export { removeChildren };

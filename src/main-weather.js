@@ -11,7 +11,7 @@ function newHourInfo(hourlyObj) {
 
   const temp = document.createElement("div");
   temp.classList.add("hour-temp");
-  temp.textContent = `${Math.floor(hourlyObj.temp/1)}°`;
+  temp.textContent = `${Math.floor(hourlyObj.temp / 1)}°`;
   hourInfo.appendChild(temp);
 
   const iconDiv = document.createElement("div");
@@ -38,19 +38,7 @@ function newHourInfo(hourlyObj) {
   return hourInfo;
 }
 
-
 function currentTemp(weatherData) {
-  /*    const tempDiv = document.createElement("div")
-    const higlow = document.createElement("div")
-    highlow.classList.add("main-hightlow")
-    highlow.id ="main-highlow"
-    const high = document.createElement("div")
-    const low = document.createElement("div")
-    high.classList.add("current-high")
-    high.id = "current-high"
-    high.textContent = weatherData.daily[0].temp.max.slice(0,2)
-    low.classList.add("current-low")
-    low.id = "current-low" */
   const tempDiv = document.createElement("div");
   tempDiv.classList.add("current-temp-data");
   tempDiv.id = "current-temp-data";
@@ -74,21 +62,41 @@ function currentTemp(weatherData) {
   return tempDiv;
 }
 
-function populateHourly(weatherData) {
-    const hourlyContainer = document.getElementById("hourly-forecast");
-    removeChildren(hourlyContainer);
-    for (let i = 0; i < 24; i++) {
-      hourlyContainer.appendChild(newHourInfo(weatherData.hourly[i]));
-    }
-  }  
-function populateMain(weatherData){
-    const mainWeather = document.getElementById("main-weather")
-    if(document.getElementById("current-temp-data")){
-        mainWeather.removeChild(document.getElementById("current-temp-data"))
-    }
-    mainWeather.appendChild(currentTemp(weatherData))
-    populateHourly(weatherData)
+function currentConditions(weatherData) {
+  const conditions = document.createElement("div");
+  conditions.classList.add("main-conditions");
+  conditions.id = "main-conditions";
+  conditions.innerHTML = `
+    <div class="main-icon" id="main-icon">
+          <img
+            id="icon-img"
+            src="http://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@2x.png"
+            alt=""
+          />
+        </div>
+        <div class="main-description" id="main-description">${weatherData.current.weather[0].description}</div>
+    `;
+  return conditions;
 }
 
+function populateHourly(weatherData) {
+  const hourlyContainer = document.getElementById("hourly-forecast");
+  removeChildren(hourlyContainer);
+  for (let i = 0; i < 24; i++) {
+    hourlyContainer.appendChild(newHourInfo(weatherData.hourly[i]));
+  }
+}
+function populateMain(weatherData) {
+  const mainWeather = document.getElementById("main-weather");
+  if (document.getElementById("current-temp-data")) {
+    mainWeather.removeChild(document.getElementById("current-temp-data"));
+  }
+  if (document.getElementById("main-conditions")) {
+    mainWeather.removeChild(document.getElementById("main-conditions"));
+  }
+  mainWeather.appendChild(currentTemp(weatherData));
+  mainWeather.appendChild(currentConditions(weatherData));
+  populateHourly(weatherData);
+}
 
-export {populateMain};
+export { populateMain };
