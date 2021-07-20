@@ -1,9 +1,6 @@
-import { removeChildren } from ".";
+import { removeChildren, unix } from ".";
 
-function unixTime(unixString) {
-  let dateObj = new Date(unixString * 1000);
-  return dateObj.toTimeString().slice(0, 5);
-}
+
 
 function newHourInfo(hourlyObj) {
   const hourInfo = document.createElement("div");
@@ -32,7 +29,7 @@ function newHourInfo(hourlyObj) {
 
   const time = document.createElement("div");
   time.classList.add("hour-time");
-  time.textContent = unixTime(hourlyObj.dt);
+  time.textContent = unix(hourlyObj.dt).time();
   hourInfo.appendChild(time);
 
   return hourInfo;
@@ -79,12 +76,12 @@ function currentConditions(weatherData) {
   return conditions;
 }
 
-function placeName(geocodeData){
-    const place = document.createElement("div")
-    place.classList.add("city-name")
-    place.id = "city-name"
-    place.textContent = geocodeData.label
-    return place
+function placeName(geocodeData) {
+  const place = document.createElement("div");
+  place.classList.add("city-name");
+  place.id = "city-name";
+  place.textContent = geocodeData.label;
+  return place;
 }
 
 function populateHourly(weatherData) {
@@ -102,14 +99,13 @@ function populateMain(weatherData, geocodeData) {
   if (document.getElementById("main-conditions")) {
     mainWeather.removeChild(document.getElementById("main-conditions"));
   }
-  if(document.getElementById("city-name")){
+  if (document.getElementById("city-name")) {
     mainWeather.removeChild(document.getElementById("city-name"));
-      
   }
-  
+
   mainWeather.appendChild(currentTemp(weatherData));
   mainWeather.appendChild(currentConditions(weatherData));
-  mainWeather.appendChild(placeName(geocodeData))
+  mainWeather.appendChild(placeName(geocodeData));
   populateHourly(weatherData);
 }
 

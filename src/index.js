@@ -12,7 +12,7 @@ searchForm.addEventListener("submit", async (e) => {
     Math.floor(geocodeData.latitude * 100) / 100,
     Math.floor(geocodeData.longitude * 100) / 100
   );
-  console.log(geocodeData)
+  console.log(geocodeData);
   console.log(weatherData);
   populateMain(weatherData, geocodeData);
 });
