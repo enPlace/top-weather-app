@@ -1,6 +1,6 @@
 import "./style.css";
 import { geocode, getWeather } from "./forecast";
-import { currentTemp, populateHourly } from "./main-weather";
+import { populateMain } from "./main-weather";
 
 const searchForm = document.getElementById("search-form");
 const searchBar = document.getElementById("search-bar");
@@ -13,9 +13,7 @@ searchForm.addEventListener("submit", async (e) => {
     Math.floor(geocodeData.longitude * 100) / 100
   );
   console.log(weatherData)
-  populateHourly(weatherData);
-  const mainWeather = document.getElementById("main-weather")
-  mainWeather.appendChild(currentTemp(weatherData))
+  populateMain(weatherData)
 });
 
 function removeChildren(parent){

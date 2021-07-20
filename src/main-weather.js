@@ -38,13 +38,6 @@ function newHourInfo(hourlyObj) {
   return hourInfo;
 }
 
-function populateHourly(weatherData) {
-  const hourlyContainer = document.getElementById("hourly-forecast");
-  removeChildren(hourlyContainer);
-  for (let i = 0; i < 24; i++) {
-    hourlyContainer.appendChild(newHourInfo(weatherData.hourly[i]));
-  }
-}
 
 function currentTemp(weatherData) {
   /*    const tempDiv = document.createElement("div")
@@ -81,4 +74,21 @@ function currentTemp(weatherData) {
   return tempDiv;
 }
 
-export { populateHourly, currentTemp };
+function populateHourly(weatherData) {
+    const hourlyContainer = document.getElementById("hourly-forecast");
+    removeChildren(hourlyContainer);
+    for (let i = 0; i < 24; i++) {
+      hourlyContainer.appendChild(newHourInfo(weatherData.hourly[i]));
+    }
+  }  
+function populateMain(weatherData){
+    const mainWeather = document.getElementById("main-weather")
+    if(document.getElementById("current-temp-data")){
+        mainWeather.removeChild(document.getElementById("current-temp-data"))
+    }
+    mainWeather.appendChild(currentTemp(weatherData))
+    populateHourly(weatherData)
+}
+
+
+export {populateMain};
