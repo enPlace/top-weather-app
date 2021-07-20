@@ -79,6 +79,14 @@ function currentConditions(weatherData) {
   return conditions;
 }
 
+function placeName(geocodeData){
+    const place = document.createElement("div")
+    place.classList.add("city-name")
+    place.id = "city-name"
+    place.textContent = geocodeData.label
+    return place
+}
+
 function populateHourly(weatherData) {
   const hourlyContainer = document.getElementById("hourly-forecast");
   removeChildren(hourlyContainer);
@@ -86,7 +94,7 @@ function populateHourly(weatherData) {
     hourlyContainer.appendChild(newHourInfo(weatherData.hourly[i]));
   }
 }
-function populateMain(weatherData) {
+function populateMain(weatherData, geocodeData) {
   const mainWeather = document.getElementById("main-weather");
   if (document.getElementById("current-temp-data")) {
     mainWeather.removeChild(document.getElementById("current-temp-data"));
@@ -94,8 +102,14 @@ function populateMain(weatherData) {
   if (document.getElementById("main-conditions")) {
     mainWeather.removeChild(document.getElementById("main-conditions"));
   }
+  if(document.getElementById("city-name")){
+    mainWeather.removeChild(document.getElementById("city-name"));
+      
+  }
+  
   mainWeather.appendChild(currentTemp(weatherData));
   mainWeather.appendChild(currentConditions(weatherData));
+  mainWeather.appendChild(placeName(geocodeData))
   populateHourly(weatherData);
 }
 
