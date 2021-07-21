@@ -1,4 +1,4 @@
-let unitType;
+let unitType ="imperial"
 
 const changeUnits = (e) =>{
     e.preventDefault()
@@ -57,5 +57,8 @@ function navMenu(){
 function getUnitType(){
     return unitType
 }
+function getDegrees(){
+    return(unitType=="metric") ?"C":"F"
+}
 
-export{ navMenu, getUnitType }
+export{ navMenu, getUnitType, getDegrees }

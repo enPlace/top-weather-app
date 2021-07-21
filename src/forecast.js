@@ -1,4 +1,5 @@
 import { weatherAPI, geocodingAPI } from "./config";
+import { getUnitType } from "./nav";
 
 // contains scripts for communicating with APIs and formating data.
 
@@ -28,7 +29,7 @@ const geocode = async (searchText) => {
 const getWeather = async (lat, lon) => {
   //uses the one call api from openweathermap.org to get detailed weather information for a location from latitude and longitude
   const response = await fetch(
-    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely&appid=${weatherAPI}`
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${getUnitType()}&exclude=minutely&appid=${weatherAPI}`
   );
   if (!response.ok) {
     throw Error(response.status);

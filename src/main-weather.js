@@ -1,4 +1,10 @@
 import { removeChildren, unix } from ".";
+import { getUnitType } from "./nav";
+
+let degreeType
+
+(getUnitType()==="metric")? degreeType = "C": degreeType = "F"
+
 
 
 
@@ -49,11 +55,11 @@ function currentTemp(weatherData) {
       )}°</div>
     </div>
     <div class="current-temp" id="current-temp">
-    ${Math.floor(weatherData.current.temp / 1)}<span class="c" id="c">°C</span>
+    ${Math.floor(weatherData.current.temp / 1)}<span class="c" id="c">°${degreeType}</span>
     </div>
     <div class="feels-like" id="feels-like">Feels like ${Math.floor(
       weatherData.current.feels_like / 1
-    )}°C</div>
+    )}°${degreeType}</div>
     `;
 
   return tempDiv;
