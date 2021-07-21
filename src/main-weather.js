@@ -3,10 +3,6 @@ import { getUnitType } from "./nav";
 
 let degreeType
 
-(getUnitType()==="metric")? degreeType = "C": degreeType = "F"
-
-
-
 
 function newHourInfo(hourlyObj) {
   const hourInfo = document.createElement("div");
@@ -98,6 +94,8 @@ function populateHourly(weatherData) {
   }
 }
 function populateMain(weatherData, geocodeData) {
+  (getUnitType()==="metric")? degreeType = "C": degreeType = "F"
+  
   const mainWeather = document.getElementById("main-weather");
   if (document.getElementById("current-temp-data")) {
     mainWeather.removeChild(document.getElementById("current-temp-data"));

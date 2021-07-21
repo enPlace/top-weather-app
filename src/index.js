@@ -6,13 +6,12 @@ import { navMenu, getDegrees } from "./nav";
 
 const searchForm = document.getElementById("search-form");
 const searchBar = document.getElementById("search-bar");
-const main = document.getElementById("main-weather")
-main.appendChild(navMenu())
-console.log(getDegrees())
+const main = document.getElementById("main-weather");
+main.appendChild(navMenu());
+console.log(getDegrees());
 
 
-searchForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
+async function populateAllWeatherData() {
   const geocodeData = await geocode(searchBar.value);
   const weatherData = await getWeather(
     Math.floor(geocodeData.latitude * 100) / 100,
@@ -21,7 +20,12 @@ searchForm.addEventListener("submit", async (e) => {
   console.log(geocodeData);
   console.log(weatherData);
   populateMain(weatherData, geocodeData);
-  populateWeeklyForecast(weatherData)
+  populateWeeklyForecast(weatherData);
+}
+
+searchForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  populateAllWeatherData()
 });
 
 function removeChildren(parent) {
@@ -33,20 +37,20 @@ function removeChildren(parent) {
 
 function unix(unixString) {
   const dateObj = new Date(unixString * 1000);
-  function time(){
+  function time() {
     return dateObj.toTimeString().slice(0, 5);
   }
-  function day(){
-    const day = dateObj.toDateString().slice(0,3)
-    if(day==="Sun") return "Sunday"
-    if(day==="Mon") return "Monday"
-    if(day==="Tue") return "Tuesday"
-    if(day==="Wed") return "Wednesday"
-    if(day==="Thu") return "Thursday"
-    if(day==="Fri") return "Friday"
-    if(day==="Sat") return "Saturday"
+  function day() {
+    const day = dateObj.toDateString().slice(0, 3);
+    if (day === "Sun") return "Sunday";
+    if (day === "Mon") return "Monday";
+    if (day === "Tue") return "Tuesday";
+    if (day === "Wed") return "Wednesday";
+    if (day === "Thu") return "Thursday";
+    if (day === "Fri") return "Friday";
+    if (day === "Sat") return "Saturday";
   }
-  return {time, day}
+  return { time, day };
 }
 
-export { removeChildren, unix };
+export { removeChildren, unix, populateAllWeatherData };

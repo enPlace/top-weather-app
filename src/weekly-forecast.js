@@ -1,5 +1,8 @@
 const d2d = require("degrees-to-direction"); //converts wind degrees to a compass direction
 import { unix } from ".";
+import { getUnitType } from "./nav";
+
+let distanceType
 
 function createWeeklyForecast(weatherData) {
   let forecastList = [];
@@ -46,7 +49,7 @@ function createWeeklyForecast(weatherData) {
         )}%</div>
         </li>
         <li><div>Wind</div> 
-          <div>${weatherData.daily[i].wind_speed}km/h 
+          <div>${weatherData.daily[i].wind_speed} ${distanceType}/h 
           ${d2d(weatherData.daily[i].wind_deg)}
           </div>
         </li>
@@ -65,6 +68,8 @@ function createWeeklyForecast(weatherData) {
 }
 
 function populateWeeklyForecast(weatherData) {
+  (getUnitType()==="metric")? distanceType = "km": distanceType = "mi"
+  
   if (document.getElementById("weekly-forecast")) {
     document.body.removeChild(document.getElementById("weekly-forecast"));
   }

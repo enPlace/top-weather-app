@@ -41,3 +41,6 @@ Steps for implementing code:
 July 21 Todo list: 
     c/f switch
     how to automatically get user location
+
+
+I need a function that calls the api and populates the data. 
