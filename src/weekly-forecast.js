@@ -14,45 +14,51 @@ function createWeeklyForecast(weatherData) {
 
     forecastDiv.innerHTML = `
     <div class="day-overview">
-    <div class="day-overview-left">
-      <div class="day-name">${day}</div>
-      <div class="day-description">${
-        weatherData.daily[i].weather[0].description
-      }</div>
-    </div>
-    <div class="day-overview-right">
-      <div class="day-icon">
-        <img
-          class="small-icon day-icon"
-          src="http://openweathermap.org/img/wn/${
-            weatherData.daily[i].weather[0].icon
-          }@2x.png"
-          alt=""
-        />
+      <div class="day-overview-left">
+        <div class="day-name">${day}</div>
+        <div class="day-description">${
+          weatherData.daily[i].weather[0].description
+        }</div>
       </div>
-      <div class="day-highlow">
-        <div class="day-high">${Math.floor(
-          weatherData.daily[i].temp.max / 1
-        )}°</div>
-        <div class="day-low">${Math.floor(
-          weatherData.daily[i].temp.min / 1
-        )}°</div>
+      <div class="day-overview-right">
+        <div class="day-icon">
+          <img
+            class="small-icon day-icon"
+            src="http://openweathermap.org/img/wn/${
+              weatherData.daily[i].weather[0].icon
+            }@2x.png"
+            alt=""
+          />
+        </div>
+        <div class="day-highlow">
+          <div class="day-high">${Math.floor(
+            weatherData.daily[i].temp.max / 1
+          )}°
+          </div>
+          <div class="day-low">${Math.floor(weatherData.daily[i].temp.min / 1)}°
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <ul class="day-details">
-    <li><div>Precipitation</div> <div>${Math.floor(
-      (weatherData.daily[i].pop * 100) / 1
-    )}%</div></li>
-    <li><div>Wind</div> <div>${weatherData.daily[i].wind_speed}km/h ${d2d(
-      weatherData.daily[i].wind_deg
-    )}</div></li>
-    <li><div>Humidity</div> <div>${weatherData.daily[i].humidity}%</div></li>
-    <li><div>UV Index</div> <div>${weatherData.daily[i].uvi}</div></li>
-    <li><div>Sunrise/Sunset</div> <div>${unix(
-      weatherData.daily[i].sunrise
-    ).time()}/${unix(weatherData.daily[i].sunset).time()}</div></li>
-  </ul>`;
+    <ul class="day-details">
+        <li><div>Precipitation</div> <div>${Math.floor(
+          (weatherData.daily[i].pop * 100) / 1
+        )}%</div>
+        </li>
+        <li><div>Wind</div> 
+          <div>${weatherData.daily[i].wind_speed}km/h 
+          ${d2d(weatherData.daily[i].wind_deg)}
+          </div>
+        </li>
+        <li><div>Humidity</div> <div>${weatherData.daily[i].humidity}%</div>
+        </li>
+        <li><div>UV Index</div> <div>${weatherData.daily[i].uvi}</div>
+        </li>
+        <li><div>Sunrise/Sunset</div> <div>${unix(
+          weatherData.daily[i].sunrise
+        ).time()}/${unix(weatherData.daily[i].sunset).time()}</div>
+        </li>
+    </ul>`;
     forecastList.push(forecastDiv);
   }
   return forecastList;

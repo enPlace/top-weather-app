@@ -2,9 +2,13 @@ import "./style.css";
 import { geocode, getWeather } from "./forecast";
 import { populateMain } from "./main-weather";
 import { populateWeeklyForecast } from "./weekly-forecast";
+import { navMenu } from "./nav";
 
 const searchForm = document.getElementById("search-form");
 const searchBar = document.getElementById("search-bar");
+const main = document.getElementById("main-weather")
+main.appendChild(navMenu())
+
 
 searchForm.addEventListener("submit", async (e) => {
   e.preventDefault();

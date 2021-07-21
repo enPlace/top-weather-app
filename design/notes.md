@@ -36,3 +36,8 @@ Steps for implementing code:
         2. insert loading animation in the DOM 
         3. Fetch API data from search menu input 
         4. delete loading animation and format the DOM from the data I get back. 
+
+
+July 21 Todo list: 
+    c/f switch
+    how to automatically get user location
