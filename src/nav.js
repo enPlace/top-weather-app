@@ -1,3 +1,11 @@
+let unitType;
+
+const changeUnits = (e) =>{
+    e.preventDefault()
+    if(e.target.id ==="c") unitType = "metric"
+    else unitType ="imperial"
+}
+
 function navMenu(){
     const nav = document.createElement("nav")
     nav.role = 'navigation'
@@ -20,22 +28,34 @@ function navMenu(){
     
     const c= document.createElement("button")
     c.id ="c"
+    c.classList.add("unitButton")
     c.textContent ="°C"
+    c.addEventListener("click", (e)=>{
+        changeUnits(e)
+    })
+
     const f = document.createElement("button")
     f.id = "f"
     f.textContent="°F"
+    f.classList.add("unitButton")
+    f.addEventListener("click", (e)=>{
+        changeUnits(e)
+    })
     cfcontainer.appendChild(c)
     cfcontainer.appendChild(f)
-
     const menuTitles = ["Home", "About", "Github"]
    
     menuTitles.forEach(title=>{
         const a = document.createElement("a")
-        a.href = title
+        a.href = "#"
         a.innerHTML = `<li>${title}</li>`
         ul.appendChild(a)
     })
   return nav
 }
 
-export{ navMenu }
+function getUnitType(){
+    return unitType
+}
+
+export{ navMenu, getUnitType }
