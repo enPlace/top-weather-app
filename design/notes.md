@@ -38,9 +38,12 @@ Steps for implementing code:
         4. delete loading animation and format the DOM from the data I get back. 
 
 
-July 21 Todo list: 
-    c/f switch
+To do's : 
+
     how to automatically get user location
-
-
-I need a function that calls the api and populates the data. 
+    change background depending on current weather
+    lower the forecast info down a bit and add lablel + indicator for scrolling. 
+    style for larger screens, 
+    
+    allow user to save places locally in the browser. 
+    Automatically save unit of measurement preference. 
