@@ -47,3 +47,5 @@ To do's :
     
     allow user to save places locally in the browser. 
     Automatically save unit of measurement preference. 
+
+    push down 8-day forecast when hamburger menu is clicked 
