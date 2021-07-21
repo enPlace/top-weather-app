@@ -49,3 +49,6 @@ To do's :
     Automatically save unit of measurement preference. 
 
     push down 8-day forecast when hamburger menu is clicked 
+
+    when you click on a city in the google places searchbar, it should submit without the user having to press enter
+    

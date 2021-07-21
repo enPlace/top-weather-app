@@ -49,12 +49,13 @@ function navMenu() {
   });
   cfcontainer.appendChild(c);
   cfcontainer.appendChild(f);
-  const menuTitles = ["Home", "About", "Github"];
+  const menuTitles = ["Home", "About", "Github", "Saved Places:"];
 
   menuTitles.forEach((title) => {
     const a = document.createElement("a");
     a.href = "#";
     a.innerHTML = `<li>${title}</li>`;
+    a.id = title
     ul.appendChild(a);
   });
   return nav;
