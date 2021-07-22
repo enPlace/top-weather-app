@@ -39,16 +39,17 @@ Steps for implementing code:
 
 
 To do's : 
+    add loading screen
+    what happens when there is an error getting user location
+    what happens when a user says no to supplying user location
 
-    how to automatically get user location
+
     change background depending on current weather
-    lower the forecast info down a bit and add lablel + indicator for scrolling. 
+ 
     style for larger screens, 
     
     allow user to save places locally in the browser. 
     Automatically save unit of measurement preference. 
-
-    push down 8-day forecast when hamburger menu is clicked 
 
     when you click on a city in the google places searchbar, it should submit without the user having to press enter
     
