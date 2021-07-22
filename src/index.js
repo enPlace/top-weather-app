@@ -20,6 +20,8 @@ async function populateAllWeatherData() {
   console.log(weatherData);
   populateMain(weatherData, geocodeData);
   populateWeeklyForecast(weatherData);
+  if (document.getElementById("menu-button").classList.contains("active"))
+    document.getElementById("weekly-forecast").classList.add("hidden");
 }
 
 searchForm.addEventListener("submit", async (e) => {

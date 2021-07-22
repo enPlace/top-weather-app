@@ -7,9 +7,12 @@ const changeUnits = (e) => {
   if (e.target.id === "c") unitType = "metric";
   else unitType = "imperial";
   populateAllWeatherData();
+  document.getElementById("weekly-forecast").classList.add("hidden")
+  console.log(document.getElementById("weekly-forecast"))
 };
 
 function hideWeekly() {
+  
   const menuButton = document.getElementById("menu-button");
   const weekly = document.getElementById("weekly-forecast");
 
@@ -69,7 +72,7 @@ function navMenu() {
   });
   cfcontainer.appendChild(c);
   cfcontainer.appendChild(f);
-  const menuTitles = ["Home", "About", "Github", "Saved Places:"];
+  const menuTitles = ["Home", "About", "Github",];
 
   menuTitles.forEach((title) => {
     const a = document.createElement("a");
