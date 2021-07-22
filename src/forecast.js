@@ -1,8 +1,7 @@
 import { weatherAPI, geocodingAPI } from "./config";
 import { getUnitType } from "./nav";
 
-// contains scripts for communicating with APIs and formating data.
-
+// contains functions for communicating with APIs and formating data.
 
 const geocode = async (searchText) => {
   //returns an object with latitude and longitude information from search text
@@ -38,5 +37,4 @@ const getWeather = async (lat, lon) => {
   return data;
 };
 
-
-export { geocode, getWeather};
+export { geocode, getWeather };

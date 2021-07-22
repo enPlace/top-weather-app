@@ -1,8 +1,7 @@
 import { removeChildren, unix } from ".";
 import { getUnitType } from "./nav";
 
-let degreeType
-
+let degreeType;
 
 function newHourInfo(hourlyObj) {
   const hourInfo = document.createElement("div");
@@ -51,7 +50,9 @@ function currentTemp(weatherData) {
       )}°</div>
     </div>
     <div class="current-temp" id="current-temp">
-    ${Math.floor(weatherData.current.temp / 1)}<span class="c" id="c">°${degreeType}</span>
+    ${Math.floor(
+      weatherData.current.temp / 1
+    )}<span class="c" id="c">°${degreeType}</span>
     </div>
     <div class="feels-like" id="feels-like">Feels like ${Math.floor(
       weatherData.current.feels_like / 1
@@ -94,8 +95,8 @@ function populateHourly(weatherData) {
   }
 }
 function populateMain(weatherData, geocodeData) {
-  (getUnitType()==="metric")? degreeType = "C": degreeType = "F"
-  
+  getUnitType() === "metric" ? (degreeType = "C") : (degreeType = "F");
+
   const mainWeather = document.getElementById("main-weather");
   if (document.getElementById("current-temp-data")) {
     mainWeather.removeChild(document.getElementById("current-temp-data"));

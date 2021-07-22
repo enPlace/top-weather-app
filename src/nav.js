@@ -1,15 +1,12 @@
 import { populateAllWeatherData } from ".";
 
-
-
 let unitType = "metric";
 
 const changeUnits = (e) => {
   e.preventDefault();
   if (e.target.id === "c") unitType = "metric";
   else unitType = "imperial";
-  populateAllWeatherData()
-
+  populateAllWeatherData();
 };
 
 function navMenu() {
@@ -55,7 +52,7 @@ function navMenu() {
     const a = document.createElement("a");
     a.href = "#";
     a.innerHTML = `<li>${title}</li>`;
-    a.id = title
+    a.id = title;
     ul.appendChild(a);
   });
   return nav;

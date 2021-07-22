@@ -10,7 +10,6 @@ const main = document.getElementById("main-weather");
 main.appendChild(navMenu());
 console.log(getDegrees());
 
-
 async function populateAllWeatherData() {
   const geocodeData = await geocode(searchBar.value);
   const weatherData = await getWeather(
@@ -25,7 +24,7 @@ async function populateAllWeatherData() {
 
 searchForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  populateAllWeatherData()
+  populateAllWeatherData();
 });
 
 function removeChildren(parent) {

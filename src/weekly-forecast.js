@@ -2,7 +2,7 @@ const d2d = require("degrees-to-direction"); //converts wind degrees to a compas
 import { unix } from ".";
 import { getUnitType } from "./nav";
 
-let distanceType
+let distanceType;
 
 function createWeeklyForecast(weatherData) {
   let forecastList = [];
@@ -68,14 +68,19 @@ function createWeeklyForecast(weatherData) {
 }
 
 function populateWeeklyForecast(weatherData) {
-  (getUnitType()==="metric")? distanceType = "km": distanceType = "mi"
-  
+  getUnitType() === "metric" ? (distanceType = "km") : (distanceType = "mi");
+
   if (document.getElementById("weekly-forecast")) {
     document.body.removeChild(document.getElementById("weekly-forecast"));
   }
   const weeklyDiv = document.createElement("div");
   weeklyDiv.classList.add("weekly-forecast");
   weeklyDiv.id = "weekly-forecast";
+  weeklyDiv.innerHTML = `
+  <header class="weekly-header" id="weekly-header">
+  <p>^</p>
+  <div>8-day forecast</div>
+</header>`
   createWeeklyForecast(weatherData).forEach((node) => {
     weeklyDiv.appendChild(node);
   });
