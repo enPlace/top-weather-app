@@ -10,10 +10,23 @@ const changeUnits = (e) => {
 };
 
 function hideWeekly() {
+  const menuButton = document.getElementById("menu-button");
   const weekly = document.getElementById("weekly-forecast");
-  return weekly.classList.contains("hidden")
-    ? weekly.classList.remove("hidden")
-    : weekly.classList.add("hidden");
+
+  if (menuButton.classList.contains("active")) {
+    weekly.classList.remove("hidden");
+    menuButton.classList.remove("active");
+  } else {
+    weekly.classList.add("hidden");
+    menuButton.classList.add("active");
+  }
+}
+
+function appendSpan(parent, num) {
+  for (let i = 0; i < num; i++) {
+    const span = document.createElement("span");
+    parent.appendChild(span);
+  }
 }
 
 function navMenu() {
@@ -22,13 +35,15 @@ function navMenu() {
   const menuToggle = document.createElement("div");
   menuToggle.id = "menuToggle";
   nav.appendChild(menuToggle);
-  menuToggle.innerHTML = `
-    <input type="checkbox" />
-    <span></span>
-    <span></span>
-    <span></span>
-    `;
-  menuToggle.addEventListener("click", hideWeekly)
+
+  const menuButton = document.createElement("input");
+  menuButton.type = "checkbox";
+  menuButton.id = "menu-button";
+  menuButton.addEventListener("click", hideWeekly);
+  menuToggle.appendChild(menuButton);
+
+  appendSpan(menuToggle, 3);
+
   const ul = document.createElement("ul");
   ul.id = "menu";
   menuToggle.appendChild(ul);
