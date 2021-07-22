@@ -25,6 +25,16 @@ const geocode = async (searchText) => {
   return data.data[0];
 };
 
+const reverseGeocode = async (lat, lon) => {
+  const URL = `http://api.positionstack.com/v1/reverse?access_key=fcf207d586416db580282480768a64e6&query=${lat},${lon}`;
+  const response = await fetch(URL);
+  if (!response.ok) {
+    throw Error(response.status);
+  }
+  const data = await response.json();
+  return data
+};
+
 const getWeather = async (lat, lon) => {
   //uses the one call api from openweathermap.org to get detailed weather information for a location from latitude and longitude
   const response = await fetch(
@@ -37,4 +47,4 @@ const getWeather = async (lat, lon) => {
   return data;
 };
 
-export { geocode, getWeather };
+export { geocode, reverseGeocode, getWeather };
