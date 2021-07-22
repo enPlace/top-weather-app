@@ -9,6 +9,13 @@ const changeUnits = (e) => {
   populateAllWeatherData();
 };
 
+function hideWeekly() {
+  const weekly = document.getElementById("weekly-forecast");
+  return weekly.classList.contains("hidden")
+    ? weekly.classList.remove("hidden")
+    : weekly.classList.add("hidden");
+}
+
 function navMenu() {
   const nav = document.createElement("nav");
   nav.role = "navigation";
@@ -21,6 +28,7 @@ function navMenu() {
     <span></span>
     <span></span>
     `;
+  menuToggle.addEventListener("click", hideWeekly)
   const ul = document.createElement("ul");
   ul.id = "menu";
   menuToggle.appendChild(ul);

@@ -127,7 +127,7 @@ form input {
   z-index: 10;
   grid-row: 14/16;
   grid-column: 1/13;
-  transition: ease-in-out .6s;
+  transition: ease-in-out .4s;
 
 }
 .weekly-forecast.hidden{

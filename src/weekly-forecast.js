@@ -79,8 +79,8 @@ function populateWeeklyForecast(weatherData) {
   weeklyDiv.innerHTML = `
   <header class="weekly-header" id="weekly-header">
   <p>^</p>
-  <div>8-day forecast</div>
-</header>`
+  <div>8-day forecast:</div>
+  </header>`;
   createWeeklyForecast(weatherData).forEach((node) => {
     weeklyDiv.appendChild(node);
   });
