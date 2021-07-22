@@ -17,8 +17,7 @@ body {
   grid-template-rows: repeat(15, 1fr);
   color: ghostwhite;
 }
-body div {
-}
+
 .main-weather {
   position: fixed;
   height: 90%;
@@ -40,6 +39,13 @@ form {
 form input {
   width: 97%;
   height: 70%;
+}
+.initial-message{
+  grid-column: 2/12;
+  grid-row: 3/4;
+  align-self: center;
+  align-self: center;
+  text-align: center;
 }
 .current-temp-data {
   grid-row: 2/7;

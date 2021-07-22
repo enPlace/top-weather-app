@@ -26,6 +26,13 @@ async function success(pos) {
 
 function error(err) {
   console.warn(`ERROR(${err.code}): ${err.message}`);
+  const message = document.createElement("div")
+  message.id = "initial-message"
+  message.classList.add("initial-message")
+  message.textContent = "Search for a city and press 'Enter' to get started"
+  document.getElementById("main-weather").appendChild(message)
+
+
 }
 
 function populateFromUserLocation() {
