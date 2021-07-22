@@ -6,9 +6,8 @@ const changeUnits = (e) => {
   e.preventDefault();
   if (e.target.id === "c") unitType = "metric";
   else unitType = "imperial";
-  populateAllWeatherData();
-  document.getElementById("weekly-forecast").classList.add("hidden")
-  console.log(document.getElementById("weekly-forecast"))
+
+
 };
 
 function hideWeekly() {
