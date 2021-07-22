@@ -3,7 +3,7 @@ import { geocode, getWeather } from "./forecast";
 import { populateMain } from "./main-weather";
 import { populateWeeklyForecast } from "./weekly-forecast";
 import { navMenu, getDegrees } from "./nav";
-import { autoPopulateData } from "./user-location";
+import { populateFromUserLocation } from "./user-location";
 
 
 const searchForm = document.getElementById("search-form");
@@ -12,9 +12,10 @@ const main = document.getElementById("main-weather");
 main.appendChild(navMenu());
 console.log(getDegrees());
 
-autoPopulateData()
+populateFromUserLocation()
 
 async function populateAllWeatherData() {
+
   const geocodeData = await geocode(searchBar.value);
   const weatherData = await getWeather(
     Math.floor(geocodeData.latitude * 100) / 100,

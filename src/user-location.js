@@ -14,12 +14,6 @@ var options = {
 
 async function success(pos) {
   const crd = pos.coords;
-  /*     console.log(crd)
-  
-    console.log('Your current position is:');
-    console.log(`Latitude : ${crd.latitude}`);
-    console.log(`Longitude: ${crd.longitude}`);
-    console.log(`More or less ${crd.accuracy} meters.`); */
     console.log(crd)
     const lat = Math.floor(crd.latitude * 100) / 100;
     const lon= Math.floor(crd.longitude * 100) / 100;
@@ -44,11 +38,11 @@ function error(err) {
 }
 
 
-async function autoPopulateData() {
+async function populateFromUserLocation() {
   await navigator.geolocation.getCurrentPosition(success, error, options);
   
   const lat = Math.floor(latitude * 100) / 100;
   const long = Math.floor(longitude * 100) / 100;
 }
 
-export { autoPopulateData };
+export { populateFromUserLocation };

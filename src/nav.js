@@ -1,12 +1,16 @@
+import { populateFromUserLocation } from "./user-location"
+
 import { populateAllWeatherData } from ".";
 
-let unitType = "metric";
+let unitType = "imperial";
 
 const changeUnits = (e) => {
   e.preventDefault();
   if (e.target.id === "c") unitType = "metric";
   else unitType = "imperial";
-
+  if(document.getElementById("search-bar").value) populateAllWeatherData()
+  else populateFromUserLocation();
+  document.getElementById("weekly-forecast").classList.add("hidden")
 
 };
 
