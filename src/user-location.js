@@ -2,8 +2,6 @@ import { populateWeeklyForecast } from "./weekly-forecast";
 import { populateMain } from "./main-weather";
 import { getWeather, reverseGeocode } from "./forecast";
 
-let latitude;
-let longitude;
 var options = {
   enableHighAccuracy: true,
   timeout: 5000,
