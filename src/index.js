@@ -5,17 +5,15 @@ import { populateWeeklyForecast } from "./weekly-forecast";
 import { navMenu, getDegrees } from "./nav";
 import { populateFromUserLocation } from "./user-location";
 
-
 const searchForm = document.getElementById("search-form");
 const searchBar = document.getElementById("search-bar");
 const main = document.getElementById("main-weather");
 main.appendChild(navMenu());
 console.log(getDegrees());
 
-populateFromUserLocation()
+populateFromUserLocation();
 
 async function populateAllWeatherData() {
-
   const geocodeData = await geocode(searchBar.value);
   const weatherData = await getWeather(
     Math.floor(geocodeData.latitude * 100) / 100,
@@ -23,6 +21,9 @@ async function populateAllWeatherData() {
   );
   console.log(geocodeData);
   console.log(weatherData);
+  if (document.getElementById("initial-message")) {
+    main.removeChild(document.getElementById("initial-message"));
+  }
   populateMain(weatherData, geocodeData);
   populateWeeklyForecast(weatherData);
   if (document.getElementById("menu-button").classList.contains("active"))
