@@ -99,6 +99,7 @@ form input {
   display: flex;
   overflow: scroll;
   align-items: center;
+  overflow-y: hidden;
 }
 .hour-info {
   display: flex;
@@ -300,7 +301,7 @@ a:hover {
   opacity: 1;
 }
 
-/*Loader*/
+/***********Loader*******************/
 .loader-container {
   display: none;
 }
@@ -322,9 +323,9 @@ a:hover {
   align-items: center;
   margin-top: -100px;
   margin-bottom: 50px;
- 
+
   background-color: rgba(0, 0, 0, 0.953);
-  border-radius:30px;
+  border-radius: 30px;
   width: 200px;
   height: 100px;
 }
@@ -347,5 +348,104 @@ a:hover {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (min-width: 410px) {
+  .weekly-forecast {
+    margin-top: 4%;
+  }
+
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    border-radius: 0px;
+    background-color: #020202e8;
+  }
+  .gallery::-webkit-scrollbar-track {
+    background-color: black;
+  }
+
+  ::-webkit-scrollbar {
+    height: 7px;
+    width: 6px;
+    background-color: #f5f5f5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    width: 5px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: rgb(233, 233, 233);
+  }
+}
+
+@media screen and (min-width: 754px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  .main-weather {
+    position: initial;
+    height: initial;
+    width: 100%;
+  }
+
+  .weekly-forecast {
+    margin-top: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    z-index: 0;
+    padding-bottom: 50px;
+  }
+  .weekly-forecast.hidden {
+    margin-top: 0%;
+    transition: ease-in-out 0.6s;
+    z-index: 0;
+  }
+  .weekly-forecast p {
+    display: none;
+  }
+  .weekly-forecast header {
+    padding: 20px;
+    width: 100%;
+  }
+  #today-forecast {
+    width: 100%;
+    margin: 0;
+   
+
+  }
+  #today-forecast .day-overview{
+    justify-content: center;
+  }
+  #today-forecast .day-overview-left{
+    margin-right: 45px;
+  }
+  #today-forecast .day-overview-left div{
+    margin:5px;
+  }
+  #today-forecast .day-details{
+    padding-left: 30%;
+    padding-right: 30%;
+  }
+  #today-forecast .day-details li{
+    justify-content: space-between;
+  }
+ 
+  .day-forecast {
+    width: 250px;
+    margin: 10px;
+    padding: 20px;
+  }
+  .day-details li {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    padding-right: 6px;
+    padding-left: 6px;
+    font-size: 0.9em;
   }
 }
