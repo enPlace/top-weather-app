@@ -8,26 +8,34 @@ import { populateFromUserLocation } from "./user-location";
 const searchForm = document.getElementById("search-form");
 const searchBar = document.getElementById("search-bar");
 const main = document.getElementById("main-weather");
+
 main.appendChild(navMenu());
 console.log(getDegrees());
 
 populateFromUserLocation();
 
 async function populateAllWeatherData() {
-  const geocodeData = await geocode(searchBar.value);
-  const weatherData = await getWeather(
-    Math.floor(geocodeData.latitude * 100) / 100,
-    Math.floor(geocodeData.longitude * 100) / 100
-  );
-  console.log(geocodeData);
-  console.log(weatherData);
-  if (document.getElementById("initial-message")) {
-    main.removeChild(document.getElementById("initial-message"));
+  document.getElementById("loader-container").classList.add("active");
+  try {
+    const geocodeData = await geocode(searchBar.value);
+    const weatherData = await getWeather(
+      Math.floor(geocodeData.latitude * 100) / 100,
+      Math.floor(geocodeData.longitude * 100) / 100
+    );
+    console.log(geocodeData);
+    console.log(weatherData);
+    if (document.getElementById("initial-message")) {
+      main.removeChild(document.getElementById("initial-message"));
+    }
+    populateMain(weatherData, geocodeData);
+    populateWeeklyForecast(weatherData);
+    document.getElementById("loader-container").classList.remove("active");
+    if (document.getElementById("menu-button").classList.contains("active")) {
+      document.getElementById("weekly-forecast").classList.add("hidden");
+    }
+  } catch {
+    document.getElementById("loader-container").classList.remove("active");
   }
-  populateMain(weatherData, geocodeData);
-  populateWeeklyForecast(weatherData);
-  if (document.getElementById("menu-button").classList.contains("active"))
-    document.getElementById("weekly-forecast").classList.add("hidden");
 }
 
 searchForm.addEventListener("submit", async (e) => {

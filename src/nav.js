@@ -12,6 +12,7 @@ const changeUnits = (e) => {
   else populateFromUserLocation();
   document.getElementById("weekly-forecast").classList.add("hidden")
 
+
 };
 
 function hideWeekly() {
