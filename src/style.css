@@ -75,6 +75,7 @@ form input {
 }
 .main-conditions {
   grid-row: 3/8;
+
   grid-column: 8/13;
 }
 .main-conditions div {
@@ -383,14 +384,67 @@ a:hover {
   body {
     display: flex;
     flex-direction: column;
+    position: initial;
   }
   .main-weather {
+    grid-row: 1/15;
+  
     position: initial;
-    height: initial;
+    height: 550px;
     width: 100%;
+  }
+  .current-temp-data {
+    grid-row: 2/7;
+    grid-column: 2/4;
+    padding: 4%;
+    justify-content: space-between;
+    padding: 0px;
+  }
+  .main-conditions {
+    grid-row: 2/7;
+    grid-column: 10/12;
+    margin-top: 10px;
+  }
+  .main-conditions div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .main-icon {
+    margin-top: 0px;
+    padding: 0px;
+  }
+  #icon-img {
+    width: 150px;
+  }
+  .city-name {
+    grid-row: 2/7;
+    grid-column: 4/10;
+    font-size: 1.3em;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+ 
+  }
+
+  .hourly-forecast {
+    background-color: rgba(0, 0, 0, 0.316);
+    grid-row: 8/13;
+    grid-column: 2/12;
+    display: flex;
+    overflow: scroll;
+    align-items: center;
+    overflow-y: hidden;
+  }
+  .hour-info {
+    background-color: var(--dark);
+    border-color: transparent;
   }
 
   .weekly-forecast {
+    grid-row: 15/16;
     margin-top: 0px;
     display: flex;
     flex-wrap: wrap;
@@ -415,26 +469,24 @@ a:hover {
   #today-forecast {
     width: 100%;
     margin: 0;
-   
-
   }
-  #today-forecast .day-overview{
+  #today-forecast .day-overview {
     justify-content: center;
   }
-  #today-forecast .day-overview-left{
+  #today-forecast .day-overview-left {
     margin-right: 45px;
   }
-  #today-forecast .day-overview-left div{
-    margin:5px;
+  #today-forecast .day-overview-left div {
+    margin: 5px;
   }
-  #today-forecast .day-details{
+  #today-forecast .day-details {
     padding-left: 30%;
     padding-right: 30%;
   }
-  #today-forecast .day-details li{
+  #today-forecast .day-details li {
     justify-content: space-between;
   }
- 
+
   .day-forecast {
     width: 250px;
     margin: 10px;
