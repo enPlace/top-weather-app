@@ -8,8 +8,8 @@
     "watch": "webpack --watch",
     "build": "webpack",
     "dev": "webpack serve --open",
-    "start": "node server.js", 
-  "heroku-postbuild": "webpack"
+    "start": "node server.js",
+    "heroku-postbuild": "webpack"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +27,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "degrees-to-direction": "^1.1.1"
+    "degrees-to-direction": "^1.1.1",
+    "express": "^4.17.1"
   }
 }
