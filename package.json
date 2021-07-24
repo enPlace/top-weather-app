@@ -9,7 +9,7 @@
     "build": "webpack",
     "dev": "webpack serve --open",
     "start": "node server.js", 
-  "heroku-postbuild": "webpack -p"
+  "heroku-postbuild": "webpack"
   },
   "keywords": [],
   "author": "",
