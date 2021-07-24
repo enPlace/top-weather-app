@@ -28,7 +28,7 @@ async function success(pos) {
   } catch {
     document.getElementById("loader-container").classList.remove("active");
   }
-  return crd;
+
 }
 
 function error(err) {
