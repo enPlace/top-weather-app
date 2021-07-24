@@ -39,16 +39,14 @@ Steps for implementing code:
 
 
 To do's : 
-    add loading screen
-    what happens when there is an error getting user location
-    what happens when a user says no to supplying user location
-            Answer: insert a simple message telling the user to put in a city 
-            then, for populate data function, clear out that Message
-
 
     change background depending on current weather
  
     style for larger screens, 
+    
+
+
+
     
     allow user to save places locally in the browser. 
     Automatically save unit of measurement preference. 
