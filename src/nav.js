@@ -1,3 +1,4 @@
+import { changebg } from "./change-background";
 import { populateFromUserLocation } from "./user-location"
 
 import { populateAllWeatherData } from ".";
@@ -46,7 +47,12 @@ function navMenu() {
   const menuButton = document.createElement("input");
   menuButton.type = "checkbox";
   menuButton.id = "menu-button";
-  menuButton.addEventListener("click", hideWeekly);
+  menuButton.addEventListener("click", ()=>{
+    hideWeekly(); 
+    changebg()
+   
+
+  });
   menuToggle.appendChild(menuButton);
 
   appendSpan(menuToggle, 3);

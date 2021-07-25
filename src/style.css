@@ -20,7 +20,7 @@ body {
 
 .main-weather {
   position: fixed;
-  height: 90%;
+  height: 90vh;
   width: 100%;
   background-color: var(--dark);
   grid-column: 1/13;
