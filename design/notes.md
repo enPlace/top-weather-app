@@ -42,14 +42,9 @@ To do's :
 
     change background depending on current weather
  
-    style for larger screens, 
+    change main-weather to a fixed height for mobile. 
     
-
-
+    change geolocation api to something with https 
 
     
-    allow user to save places locally in the browser. 
-    Automatically save unit of measurement preference. 
-
-    when you click on a city in the google places searchbar, it should submit without the user having to press enter
     
