@@ -16,13 +16,15 @@ body {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(15, 1fr);
   color: ghostwhite;
+
 }
+
 
 .main-weather {
   position: fixed;
-  height: 90%;
+  height: 100vh;
   width: 100%;
-  background-color: var(--dark);
+  background-color: transparent;
   grid-column: 1/13;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -48,7 +50,7 @@ form input {
   text-align: center;
 }
 .current-temp-data {
-  grid-row: 2/7;
+  grid-row: 2/6;
   grid-column: 1/6;
   padding: 4%;
 }
@@ -87,7 +89,8 @@ form input {
   margin-top: 30px;
 }
 .city-name {
-  grid-row: 7/9;
+  margin-top: 40px;
+  grid-row: 6/7;
   grid-column: 1/10;
   font-size: 1.3em;
   padding: 2%;
@@ -95,7 +98,9 @@ form input {
   align-items: center;
 }
 .hourly-forecast {
-  grid-row: 9/13;
+  background-color: rgba(0, 0, 0, 0);
+  margin-top: 40px;
+  grid-row: 7/11;
   grid-column: 1/13;
   display: flex;
   overflow: scroll;
@@ -103,6 +108,7 @@ form input {
   overflow-y: hidden;
 }
 .hour-info {
+  background-color: rgba(0, 0, 0, 0.638);
   display: flex;
   flex-direction: column;
   align-items: center;

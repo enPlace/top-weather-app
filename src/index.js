@@ -4,10 +4,14 @@ import { populateMain } from "./main-weather";
 import { populateWeeklyForecast } from "./weekly-forecast";
 import { navMenu, getDegrees } from "./nav";
 import { populateFromUserLocation } from "./user-location";
-
+import cloud from './images/pexels-eberhard-grossgasteiger-1074428.jpg'
 const searchForm = document.getElementById("search-form");
 const searchBar = document.getElementById("search-bar");
 const main = document.getElementById("main-weather");
+
+main.style.background = `url(${cloud})`
+
+
 
 main.appendChild(navMenu());
 console.log(getDegrees());
