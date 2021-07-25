@@ -1,5 +1,6 @@
 import { removeChildren, unix } from ".";
 import { getUnitType } from "./nav";
+import { changebg } from "./change-background";
 
 let degreeType;
 
@@ -107,7 +108,7 @@ function populateMain(weatherData, geocodeData) {
   if (document.getElementById("city-name")) {
     mainWeather.removeChild(document.getElementById("city-name"));
   }
-
+  changebg(weatherData.current.weather[0].icon)
   mainWeather.appendChild(currentTemp(weatherData));
   mainWeather.appendChild(currentConditions(weatherData));
   mainWeather.appendChild(placeName(geocodeData));

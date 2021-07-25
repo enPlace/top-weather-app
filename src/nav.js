@@ -1,5 +1,4 @@
-import { changebg } from "./change-background";
-import { populateFromUserLocation } from "./user-location"
+import { populateFromUserLocation } from "./user-location";
 
 import { populateAllWeatherData } from ".";
 
@@ -9,15 +8,12 @@ const changeUnits = (e) => {
   e.preventDefault();
   if (e.target.id === "c") unitType = "metric";
   else unitType = "imperial";
-  if(document.getElementById("search-bar").value) populateAllWeatherData()
+  if (document.getElementById("search-bar").value) populateAllWeatherData();
   else populateFromUserLocation();
-  document.getElementById("weekly-forecast").classList.add("hidden")
-
-
+  document.getElementById("weekly-forecast").classList.add("hidden");
 };
 
 function hideWeekly() {
-  
   const menuButton = document.getElementById("menu-button");
   const weekly = document.getElementById("weekly-forecast");
 
@@ -47,12 +43,7 @@ function navMenu() {
   const menuButton = document.createElement("input");
   menuButton.type = "checkbox";
   menuButton.id = "menu-button";
-  menuButton.addEventListener("click", ()=>{
-    hideWeekly(); 
-    changebg()
-   
-
-  });
+  menuButton.addEventListener("click", hideWeekly);
   menuToggle.appendChild(menuButton);
 
   appendSpan(menuToggle, 3);
@@ -82,7 +73,7 @@ function navMenu() {
   });
   cfcontainer.appendChild(c);
   cfcontainer.appendChild(f);
-  const menuTitles = ["Home", "About", "Github",];
+  const menuTitles = ["Home", "About", "Github"];
 
   menuTitles.forEach((title) => {
     const a = document.createElement("a");

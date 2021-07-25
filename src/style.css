@@ -31,6 +31,8 @@ body {
   grid-template-rows: repeat(12, 1fr);
   padding: 20px;
   box-sizing: border-box;
+  transition:1s ease-in-out;
+  background-size: cover;
 }
 form {
   grid-column: 2/12;
@@ -321,8 +323,8 @@ a:hover {
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.625);
-  width: 100%;
-  height: 1000%;
+  width: 120vw;
+  height: 120vh;
 }
 #load-message {
   display: flex;
@@ -394,21 +396,24 @@ a:hover {
     position: initial;
   }
   .main-weather {
+    padding:0px;
     grid-row: 1/15;
-
     position: initial;
     height: 550px;
-    width: 100%;
+    width: 100vw;
+  }
+  #search-bar{
+    margin-top: 20px;
   }
   .current-temp-data {
-    grid-row: 2/7;
+    grid-row: 3/7;
     grid-column: 2/4;
     padding: 4%;
     justify-content: space-between;
     padding: 0px;
   }
   .main-conditions {
-    grid-row: 2/7;
+    grid-row: 3/7;
     grid-column: 10/12;
     margin-top: 10px;
   }
@@ -516,7 +521,7 @@ a:hover {
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.625);
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
   }
 }
