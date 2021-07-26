@@ -49,5 +49,6 @@ To do's :
     check out haze weather icon 
     change rain bg
 
-    
+    add event listener to search bar children that, when clicked, executes the search for a place 
+
     
