@@ -107,7 +107,7 @@ function changebg(iconCode) {
     changeMainBg(mistDay);
     darkify("dark");
   }
-  if (iconCode == "50d") {
+  if (iconCode == "50n") {
     changeMainBg(mistNight);
     darkify();
   }
