@@ -54,8 +54,8 @@ form input {
   grid-column: 1/6;
   border-radius: 10px;
 }
-.current-temp-data .dark {
-  background-color: rgba(0, 0, 0, 0.638);
+.current-temp-data.dark {
+  background-color: rgba(0, 0, 0, 0.789);
 }
 .main-highlow {
   display: flex;
@@ -86,9 +86,10 @@ form input {
   grid-column: 8/13;
   border-radius: 10px;
 }
-.main-conditions .dark {
-  background-color: rgba(0, 0, 0, 0.638);
+.main-conditions.dark{
+  background-color: rgba(228, 228, 228, 0.72);
 }
+
 .main-conditions div {
   display: flex;
   align-items: center;
@@ -96,6 +97,11 @@ form input {
 }
 .main-description {
   padding: 5px;
+  margin-top: -8px;
+}
+.main-description.dark {
+  background-color: rgba(0, 0, 0, 0.871);
+  border-radius: 10px;
 }
 .main-icon {
   margin-top: 30px;
@@ -103,14 +109,16 @@ form input {
 .city-name {
   margin-top: 20px;
   grid-row: 6/7;
-  grid-column: 1/10;
+  grid-column: 1/8;
   font-size: 1.3em;
   display: flex;
   align-items: center;
   border-radius: 10px;
 }
-.city-name .dark {
-  background-color: rgba(0, 0, 0, 0.638);
+.city-name.dark {
+  background-color: rgba(0, 0, 0, 0.789);
+
+  padding: 10px;
 }
 .hourly-forecast {
   background-color: rgba(0, 0, 0, 0);
@@ -339,6 +347,7 @@ a:hover {
   background-color: rgba(0, 0, 0, 0.625);
   width: 120vw;
   height: 120vh;
+  z-index: 1;
 }
 #load-message {
   display: flex;

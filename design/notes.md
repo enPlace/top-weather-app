@@ -45,6 +45,9 @@ To do's :
     change main-weather to a fixed height for mobile. 
     
     change geolocation api to something with https 
+    add dark stuff for certain weather types
+    check out haze weather icon 
+    change rain bg
 
     
     
