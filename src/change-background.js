@@ -47,7 +47,7 @@ function changeMainBg(importedImage) {
 
 function changebg(iconCode) {
   if (iconCode == "01d") {
-    changeMainBg(mistNight);
+    changeMainBg(clearSkyDay);
     darkify();
   }
   if (iconCode == "01n") {

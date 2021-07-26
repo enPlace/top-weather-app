@@ -86,7 +86,7 @@ form input {
   grid-column: 8/13;
   border-radius: 10px;
 }
-.main-conditions.dark{
+.main-conditions.dark {
   background-color: rgba(228, 228, 228, 0.72);
 }
 
@@ -292,7 +292,7 @@ a:hover {
 #menuToggle input:checked ~ span {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
+  background: #cdcdcd;
 }
 
 #menuToggle input:checked ~ span:nth-last-child(3) {
@@ -306,14 +306,15 @@ a:hover {
 }
 
 #menu {
+  color: ghostwhite;
   position: absolute;
-  width: 200px;
+  width: 250px;
   height: 100%;
   margin: -100px 0 0 0;
-  padding: 50px;
+  padding: 0px;
   padding-top: 125px;
-  right: -100px;
-  background: #ededed;
+  right: -50px;
+  background: rgb(26, 26, 26);
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   transform-origin: 0% 0%;
@@ -323,14 +324,41 @@ a:hover {
 }
 
 #menu li {
-  padding: 10px 0;
+ 
+  padding: 10px;
+  padding-left: 40px;
   font-size: 22px;
+  color: ghostwhite;
+  border-bottom:1px solid white;
+  width: 100%;
+  display: flex;
+  margin-bottom: 3px;
+}
+#menu button {
+margin-bottom: 15px;
+margin-left: 40px;
+border-radius: 50%;
+width: 43px;
+height: 43px;
+background-color: var(--dark);
+color: ghostwhite;
+border: none;
+border: 2px solid transparent;
+font-size: 20px;
+box-shadow: 1px 1px 1px rgb(111, 110, 110) inset;
+
+
+}
+#menu button:active{
+  
+  box-shadow: -1px -1px 1px 0px rgb(111, 110, 110) inset;
 }
 
 #menuToggle input:checked ~ ul {
   transform: scale(1, 1);
   opacity: 1;
 }
+
 
 /***********Loader*******************/
 .loader-container {
