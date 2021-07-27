@@ -89,11 +89,13 @@ function placeName(geocodeData) {
 }
 
 function populateHourly(weatherData) {
-  const hourlyContainer = document.getElementById("hourly-forecast");
-  removeChildren(hourlyContainer);
+  const hourlyContainer = document.createElement("div");
+  hourlyContainer.id = "hourly-forecast"
+  hourlyContainer.classList.add("hourly-forecast")
   for (let i = 0; i < 24; i++) {
     hourlyContainer.appendChild(newHourInfo(weatherData.hourly[i]));
   }
+  return hourlyContainer
 }
 function populateMain(weatherData, geocodeData) {
   getUnitType() === "metric" ? (degreeType = "C") : (degreeType = "F");
@@ -108,11 +110,14 @@ function populateMain(weatherData, geocodeData) {
   if (document.getElementById("city-name")) {
     mainWeather.removeChild(document.getElementById("city-name"));
   }
+  if (document.getElementById("hourly-forecast")){
+    mainWeather.removeChild(document.getElementById("hourly-forecast"))
+  }
  
   mainWeather.appendChild(currentTemp(weatherData));
   mainWeather.appendChild(currentConditions(weatherData));
   mainWeather.appendChild(placeName(geocodeData));
-  populateHourly(weatherData);
+  mainWeather.appendChild(populateHourly(weatherData));
   changebg(weatherData.current.weather[0].icon)
 }
 
