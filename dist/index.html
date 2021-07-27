@@ -10,7 +10,7 @@
     <div class="main-weather" id="main-weather">
     <form autocomplete="off" action="" id="search-form">
       
-      <input type="text" id="search-bar" />
+      <input onClick="this.setSelectionRange(0, this.value.length)" type="text" id="search-bar" />
       <button type="submit"id = "submit">Go</button>
       <div id="auto-complete"></div>
       

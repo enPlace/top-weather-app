@@ -2,6 +2,10 @@ import { removeChildren, unix } from ".";
 import { getUnitType } from "./nav";
 import { changebg } from "./change-background";
 
+
+
+
+
 let degreeType;
 
 function newHourInfo(hourlyObj) {
