@@ -21,6 +21,7 @@ body {
 .main-weather {
   position: fixed;
   height: 100vh;
+  min-height: 520px;
   width: 100%;
   background-color: transparent;
   grid-column: 1/13;
@@ -593,5 +594,19 @@ box-shadow: 1px 1px 1px rgb(111, 110, 110) inset;
     background-color: rgba(0, 0, 0, 0.625);
     width: 100vw;
     height: 100vh;
+  }
+}
+
+@media screen and (max-height: 524px){
+  .city-name{ 
+    display: none;}
+}
+
+
+@media screen and (max-height: 405px){
+  .city-name{ 
+    display: none;}
+  .hourly-forecast{
+    display: none;
   }
 }
