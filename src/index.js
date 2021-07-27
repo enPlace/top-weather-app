@@ -5,10 +5,12 @@ import { populateWeeklyForecast } from "./weekly-forecast";
 import { navMenu, getDegrees } from "./nav";
 import { populateFromUserLocation } from "./user-location";
 
+
 const searchForm = document.getElementById("search-form");
 const searchBar = document.getElementById("search-bar");
 const main = document.getElementById("main-weather");
-
+console.log(process.env.WEATHER_KEY)
+console.log(process.env.GEO_KEY)
 main.appendChild(navMenu());
 console.log(getDegrees());
 

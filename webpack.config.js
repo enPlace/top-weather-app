@@ -1,42 +1,36 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const path = require("path");
+const Dotenv = require("dotenv-webpack");
 module.exports = {
-  entry: './src/index.js',
-  devtool: 'inline-source-map',
+  entry: "./src/index.js",
+  devtool: "inline-source-map",
   devServer: {
-
-    contentBase: './dist',
-
+    contentBase: "./dist",
   },
-/*   plugins: [
-
-    new HtmlWebpackPlugin({
-
-      title: 'Weather App', // title of webpage that appears in tab and top of browser
-
-    }),
-
-  ], */
+  plugins: [
+    new Dotenv(),
+  ],
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
   },
-  mode: 'development', // | 'production' | 'none'
+  mode: "development", // | 'production' | 'none'
 
   module: {
     rules: [
-      { // for css
+      {
+        // for css
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
-      { // for imgs
+      {
+        // for imgs
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
-      { // for fonts
+      {
+        // for fonts
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
     ],
   },

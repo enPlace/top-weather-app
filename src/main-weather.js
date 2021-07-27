@@ -4,8 +4,6 @@ import { changebg } from "./change-background";
 
 
 
-
-
 let degreeType;
 
 function newHourInfo(hourlyObj) {
