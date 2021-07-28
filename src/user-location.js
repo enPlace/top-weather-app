@@ -9,17 +9,18 @@ var options = {
 };
 
 async function success(pos) {
+  const crd = pos.coords;
   try {
-    const crd = pos.coords;
     console.log(crd);
+    console.log(crd.latitude, crd.longitude);
     const reverseGeocodeData = await reverseGeocode(
       crd.latitude,
       crd.longitude
     );
     const weatherData = await getWeather(crd.latitude, crd.longitude);
-    console.log(reverseGeocodeData.data[0].label);
+    console.log(reverseGeocodeData);
     console.log(weatherData);
-    populateMain(weatherData, reverseGeocodeData.data[0]);
+    populateMain(weatherData, reverseGeocodeData);
     populateWeeklyForecast(weatherData);
     if (document.getElementById("menu-button").classList.contains("active")) {
       document.getElementById("weekly-forecast").classList.add("hidden");
@@ -28,7 +29,6 @@ async function success(pos) {
   } catch {
     document.getElementById("loader-container").classList.remove("active");
   }
-
 }
 
 function error(err) {

@@ -86,7 +86,7 @@ function placeName(geocodeData) {
   const place = document.createElement("div");
   place.classList.add("city-name");
   place.id = "city-name";
-  place.textContent = geocodeData.label;
+  place.textContent = geocodeData.results[0].formatted_address;
   return place;
 }
 

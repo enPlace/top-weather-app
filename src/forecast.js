@@ -1,38 +1,26 @@
 import { weatherAPI, geocodingAPI } from "./config";
 import { getUnitType } from "./nav";
 
-// contains functions for communicating with APIs and formating data.
-
 const geocode = async (searchText) => {
   //returns an object with latitude and longitude information from search text
-  const URL = `http://api.positionstack.com/v1/forward?access_key=${geocodingAPI}&query=${searchText}`;
+  const URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${searchText}&key=${geocodingAPI}`;
   const response = await fetch(URL);
   if (!response.ok) {
     throw Error(response.status);
   }
   const data = await response.json();
-
-  for (let i = 0; i < data.data.length; i++) {
-    if (
-      document
-        .getElementById("search-bar")
-        .value.split(",")[0]
-        .toLowerCase() === data.data[i].name.toLowerCase()
-    ) {
-      return data.data[i];
-    }
-  }
-  return data.data[0];
+  return data;
 };
 
 const reverseGeocode = async (lat, lon) => {
-  const URL = `http://api.positionstack.com/v1/reverse?access_key=fcf207d586416db580282480768a64e6&query=${lat},${lon}`;
+  //gets an address from latitude and longitude
+  const URL = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=${geocodingAPI}`;
   const response = await fetch(URL);
   if (!response.ok) {
     throw Error(response.status);
   }
   const data = await response.json();
-  return data
+  return data;
 };
 
 const getWeather = async (lat, lon) => {

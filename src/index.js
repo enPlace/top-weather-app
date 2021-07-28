@@ -5,12 +5,11 @@ import { populateWeeklyForecast } from "./weekly-forecast";
 import { navMenu, getDegrees } from "./nav";
 import { populateFromUserLocation } from "./user-location";
 
-
 const searchForm = document.getElementById("search-form");
 const searchBar = document.getElementById("search-bar");
 const main = document.getElementById("main-weather");
-console.log(process.env.WEATHER_KEY)
-console.log(process.env.GEO_KEY)
+console.log(process.env.WEATHER_KEY);
+console.log(process.env.GEO_KEY);
 main.appendChild(navMenu());
 console.log(getDegrees());
 
@@ -20,21 +19,16 @@ async function populateAllWeatherData() {
   document.getElementById("loader-container").classList.add("active");
   try {
     const geocodeData = await geocode(searchBar.value);
-    const weatherData = await getWeather(
-      Math.floor(geocodeData.latitude * 100) / 100,
-      Math.floor(geocodeData.longitude * 100) / 100
-    );
     console.log(geocodeData);
+    console.log(geocodeData.results[0].formatted_address);
+    const weatherData = await getWeather(
+      geocodeData.results[0].geometry.location.lat,
+      geocodeData.results[0].geometry.location.lng
+    );
     console.log(weatherData);
-    if (document.getElementById("initial-message")) {
-      main.removeChild(document.getElementById("initial-message"));
-    }
     populateMain(weatherData, geocodeData);
     populateWeeklyForecast(weatherData);
     document.getElementById("loader-container").classList.remove("active");
-    if (document.getElementById("menu-button").classList.contains("active")) {
-      document.getElementById("weekly-forecast").classList.add("hidden");
-    }
   } catch {
     document.getElementById("loader-container").classList.remove("active");
   }
@@ -53,6 +47,7 @@ function removeChildren(parent) {
 }
 
 function unix(unixString) {
+  //converts a unix string into time or day
   const dateObj = new Date(unixString * 1000);
   function time() {
     return dateObj.toTimeString().slice(0, 5);

@@ -13,7 +13,7 @@ module.exports = {
       'process.env': {
          'GEO_KEY': JSON.stringify(process.env.GEO_KEY),
          'WEATHER_KEY': JSON.stringify(process.env.WEATHER_KEY),
-         'GOOGLE_KEY': JSON.stringify(process.env.GOOGLE_KEY) 
+         'GOOGLEGEO_KEY': JSON.stringify(process.env.GOOGLEGEO_KEY) 
       },
     }),
   ],
