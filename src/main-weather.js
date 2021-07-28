@@ -19,7 +19,7 @@ function newHourInfo(hourlyObj) {
   iconDiv.classList.add("hour-icon");
   const icon = document.createElement("img");
   icon.classList.add("small-icon");
-  icon.src = `http://openweathermap.org/img/wn/${hourlyObj.weather[0].icon}@2x.png`;
+  icon.src = `https://openweathermap.org/img/wn/${hourlyObj.weather[0].icon}@2x.png`;
   iconDiv.appendChild(icon);
   hourInfo.appendChild(iconDiv);
 
@@ -73,7 +73,7 @@ function currentConditions(weatherData) {
     <div class="main-icon" id="main-icon">
           <img
             id="icon-img"
-            src="http://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@2x.png"
+            src="https://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@2x.png"
             alt=""
           />
         </div>
