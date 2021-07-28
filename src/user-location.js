@@ -8,21 +8,24 @@ var options = {
   timeout: 5000,
   maximumAge: 0,
 };
+let initialLoad = true
 function setInitialUnitType(reverseGeocodeData){
-  let country
-  for(let i =0; i<reverseGeocodeData.results.length; i++){
-    if(reverseGeocodeData.results[i].types[0]=="country"){
-      country = reverseGeocodeData.results[i].formatted_address
-      break
+  if(initialLoad===true){
+    initialLoad=false
+    let country
+    for(let i =0; i<reverseGeocodeData.results.length; i++){
+      if(reverseGeocodeData.results[i].types[0]=="country"){
+        country = reverseGeocodeData.results[i].formatted_address
+        break
+      }
+    }
+    console.log(country)
+    if(country ==="United States"){
+      setUnitType("imperial")
+    }else{
+      setUnitType("metric")
     }
   }
-  console.log(country)
-  if(country ==="United States"){
-    setUnitType("imperial")
-  }else{
-    setUnitType("metric")
-  }
-  
 }
 async function success(pos) {
   const crd = pos.coords;
