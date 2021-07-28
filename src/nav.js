@@ -2,8 +2,10 @@ import { populateFromUserLocation } from "./user-location";
 
 import { populateAllWeatherData } from ".";
 
-let unitType = "imperial";
-
+let unitType = "metric";
+function setUnitType(type){
+  unitType = type
+}
 const changeUnits = (e) => {
   e.preventDefault();
   if (e.target.id === "c") unitType = "metric";
@@ -92,4 +94,4 @@ function getDegrees() {
   return unitType == "metric" ? "C" : "F";
 }
 
-export { navMenu, getUnitType, getDegrees };
+export { navMenu, getUnitType, getDegrees, setUnitType};
