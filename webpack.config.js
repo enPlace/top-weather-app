@@ -12,7 +12,8 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
          'GEO_KEY': JSON.stringify(process.env.GEO_KEY),
-         'WEATHER_KEY': JSON.stringify(process.env.WEATHER_KEY)
+         'WEATHER_KEY': JSON.stringify(process.env.WEATHER_KEY),
+         'GOOGLE_KEY': JSON.stringify(process.env.GOOGLE_KEY) 
       },
     }),
   ],
