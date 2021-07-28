@@ -12,7 +12,8 @@ module.exports = {
       'process.env': {
          'API_KEY': JSON.stringify(process.env.GEO_KEY),
          'WEATHER_KEY': JSON.stringify(process.env.WEATHER_KEY)
-      }
+      },
+    }),
   ],
   output: {
     filename: "bundle.js",
