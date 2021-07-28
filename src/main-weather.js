@@ -27,7 +27,7 @@ function newHourInfo(hourlyObj) {
   precipDiv.classList.add("hour-precip");
   precipDiv.innerHTML = "<div>precip:</div>";
   const pop = document.createElement("div");
-  pop.textContent = `${hourlyObj.pop}%`;
+  pop.textContent = `${Math.floor(hourlyObj.pop*100)}%`;
   precipDiv.appendChild(pop);
   hourInfo.appendChild(precipDiv);
 
