@@ -27,7 +27,7 @@ function createWeeklyForecast(weatherData) {
         <div class="day-icon">
           <img
             class="small-icon day-icon"
-            src="http://openweathermap.org/img/wn/${
+            src="https://openweathermap.org/img/wn/${
               weatherData.daily[i].weather[0].icon
             }@2x.png"
             alt=""
