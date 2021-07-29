@@ -10,7 +10,7 @@ https://enplace-weather.herokuapp.com/
 
 ## Preview:
 <img src="./cell.gif" alt="desktop" width="200"/>
-<img src="./desktop.gif" alt="desktop" width="600"/>
+<img src="./desktop.gif" alt="desktop" width="800"/>
 
 ## Usage and Features
 The app displays current conditions, an hourly forecast, and an 8 day forecast including today's forecast.
