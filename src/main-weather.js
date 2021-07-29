@@ -2,8 +2,6 @@ import { removeChildren, unix } from ".";
 import { getUnitType } from "./nav";
 import { changebg } from "./change-background";
 
-
-
 let degreeType;
 
 function newHourInfo(hourlyObj) {
@@ -27,7 +25,7 @@ function newHourInfo(hourlyObj) {
   precipDiv.classList.add("hour-precip");
   precipDiv.innerHTML = "<div>precip:</div>";
   const pop = document.createElement("div");
-  pop.textContent = `${Math.floor(hourlyObj.pop*100)}%`;
+  pop.textContent = `${Math.floor(hourlyObj.pop * 100)}%`;
   precipDiv.appendChild(pop);
   hourInfo.appendChild(precipDiv);
 
@@ -82,24 +80,30 @@ function currentConditions(weatherData) {
   return conditions;
 }
 
-function placeName(geocodeData) {
+function placeName(geocodeData, type) {
   const place = document.createElement("div");
   place.classList.add("city-name");
   place.id = "city-name";
-  place.textContent = geocodeData.results[0].formatted_address;
+  if (type === "local") {
+    let pluscode = geocodeData.plus_code.compound_code.split(" ") 
+    place.textContent = pluscode.slice(1, pluscode.length).join(" ")
+  }else{
+    place.textContent = geocodeData.results[0].formatted_address;
+  }
+
   return place;
 }
 
 function populateHourly(weatherData) {
   const hourlyContainer = document.createElement("div");
-  hourlyContainer.id = "hourly-forecast"
-  hourlyContainer.classList.add("hourly-forecast")
+  hourlyContainer.id = "hourly-forecast";
+  hourlyContainer.classList.add("hourly-forecast");
   for (let i = 0; i < 24; i++) {
     hourlyContainer.appendChild(newHourInfo(weatherData.hourly[i]));
   }
-  return hourlyContainer
+  return hourlyContainer;
 }
-function populateMain(weatherData, geocodeData) {
+function populateMain(weatherData, geocodeData, type) {
   getUnitType() === "metric" ? (degreeType = "C") : (degreeType = "F");
 
   const mainWeather = document.getElementById("main-weather");
@@ -112,15 +116,15 @@ function populateMain(weatherData, geocodeData) {
   if (document.getElementById("city-name")) {
     mainWeather.removeChild(document.getElementById("city-name"));
   }
-  if (document.getElementById("hourly-forecast")){
-    mainWeather.removeChild(document.getElementById("hourly-forecast"))
+  if (document.getElementById("hourly-forecast")) {
+    mainWeather.removeChild(document.getElementById("hourly-forecast"));
   }
- 
+
   mainWeather.appendChild(currentTemp(weatherData));
   mainWeather.appendChild(currentConditions(weatherData));
-  mainWeather.appendChild(placeName(geocodeData));
+  mainWeather.appendChild(placeName(geocodeData,type));
   mainWeather.appendChild(populateHourly(weatherData));
-  changebg(weatherData.current.weather[0].icon)
+  changebg(weatherData.current.weather[0].icon);
 }
 
 export { populateMain };
