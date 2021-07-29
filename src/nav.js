@@ -3,8 +3,8 @@ import { populateFromUserLocation } from "./user-location";
 import { populateAllWeatherData } from ".";
 
 let unitType = "metric";
-function setUnitType(type){
-  unitType = type
+function setUnitType(type) {
+  unitType = type;
 }
 
 function getUnitType() {
@@ -88,16 +88,20 @@ function navMenu() {
   cfcontainer.appendChild(c);
   cfcontainer.appendChild(f);
   const menuTitles = ["Home", "About", "Github"];
-
+  const menuRefs = {
+    Home: "https://enplace-weather.herokuapp.com/",
+    About: "https://github.com/enPlace/top-weather-app/blob/main/README.md",
+    Github: "https://github.com/enPlace/top-weather-app",
+  };
   menuTitles.forEach((title) => {
     const a = document.createElement("a");
-    a.href = "#";
+    a.href = menuRefs[title];
     a.innerHTML = `<li>${title}</li>`;
     a.id = title;
+    if(title!=="Home")a.target = "_blank"
     ul.appendChild(a);
   });
   return nav;
 }
 
-
-export { navMenu, getUnitType, getDegrees, setUnitType};
+export { navMenu, getUnitType, getDegrees, setUnitType };
