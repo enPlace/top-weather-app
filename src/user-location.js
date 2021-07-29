@@ -8,8 +8,9 @@ var options = {
   timeout: 5000,
   maximumAge: 0,
 };
-let initialLoad = true;
+let initialLoad = true; 
 function setInitialUnitType(reverseGeocodeData) {
+  //sets unit of measurement depending on the user location
   if (initialLoad === true) {
     initialLoad = false;
     let country;
@@ -28,6 +29,7 @@ function setInitialUnitType(reverseGeocodeData) {
 }
 
 async function success(pos) {
+  //if user location is available
   const crd = pos.coords;
   try {
     const reverseGeocodeData = await reverseGeocode(
@@ -48,6 +50,7 @@ async function success(pos) {
 }
 
 function error(err) {
+  //if user location is not available
   document.getElementById("loader-container").classList.remove("active");
   console.warn(`ERROR(${err.code}): ${err.message}`);
   const message = document.createElement("div");
@@ -58,6 +61,7 @@ function error(err) {
 }
 
 function populateFromUserLocation() {
+  //populates the page from user location weather data
   document.getElementById("loader-container").classList.add("active");
   navigator.geolocation.getCurrentPosition(success, error, options);
 }

@@ -5,6 +5,7 @@ import { getUnitType } from "./nav";
 let distanceType;
 
 function createWeeklyForecast(weatherData) {
+  //returns a node list of HTML elements with each day of the weekly forecast
   let forecastList = [];
   for (let i = 0; i < 8; i++) {
     let day;
@@ -68,6 +69,7 @@ function createWeeklyForecast(weatherData) {
 }
 
 function populateWeeklyForecast(weatherData) {
+  //appends the weekly forecast data to the document
   getUnitType() === "metric" ? (distanceType = "km") : (distanceType = "mi");
 
   if (document.getElementById("weekly-forecast")) {

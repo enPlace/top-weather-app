@@ -2,7 +2,7 @@ import { weatherAPI, geocodingAPI } from "./config";
 import { getUnitType } from "./nav";
 
 const geocode = async (searchText) => {
-  //returns an object with latitude and longitude information from search text /
+  //returns an object with latitude and longitude information from search text
   const URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${searchText}&key=${geocodingAPI}`;
   const response = await fetch(URL);
   if (!response.ok) {

@@ -1,10 +1,11 @@
-import { removeChildren, unix } from ".";
+import { unix } from ".";
 import { getUnitType } from "./nav";
 import { changebg } from "./change-background";
 
 let degreeType;
 
 function newHourInfo(hourlyObj) {
+  //Returns an HTML element for a single hour's weather
   const hourInfo = document.createElement("div");
   hourInfo.classList.add("hour-info");
 
@@ -36,8 +37,19 @@ function newHourInfo(hourlyObj) {
 
   return hourInfo;
 }
+function populateHourly(weatherData) {
+  //Returns and HTML element with 24 hours of hourly weather forecasts
+  const hourlyContainer = document.createElement("div");
+  hourlyContainer.id = "hourly-forecast";
+  hourlyContainer.classList.add("hourly-forecast");
+  for (let i = 0; i < 24; i++) {
+    hourlyContainer.appendChild(newHourInfo(weatherData.hourly[i]));
+  }
+  return hourlyContainer;
+}
 
 function currentTemp(weatherData) {
+  //Returns the HTML element containing current temp info
   const tempDiv = document.createElement("div");
   tempDiv.classList.add("current-temp-data");
   tempDiv.id = "current-temp-data";
@@ -64,6 +76,7 @@ function currentTemp(weatherData) {
 }
 
 function currentConditions(weatherData) {
+    //Returns the HTML element containing the current conditions info
   const conditions = document.createElement("div");
   conditions.classList.add("main-conditions");
   conditions.id = "main-conditions";
@@ -81,29 +94,26 @@ function currentConditions(weatherData) {
 }
 
 function placeName(geocodeData, type) {
+  //Returns the HTML element containing a place name.
   const place = document.createElement("div");
   place.classList.add("city-name");
   place.id = "city-name";
   if (type === "local") {
+    //Does this if the weather comes from automatically getting the user's location
     let pluscode = geocodeData.plus_code.compound_code.split(" ") 
     place.textContent = pluscode.slice(1, pluscode.length).join(" ")
   }else{
+    //Does this on any manual user search
     place.textContent = geocodeData.results[0].formatted_address;
   }
-
   return place;
 }
 
-function populateHourly(weatherData) {
-  const hourlyContainer = document.createElement("div");
-  hourlyContainer.id = "hourly-forecast";
-  hourlyContainer.classList.add("hourly-forecast");
-  for (let i = 0; i < 24; i++) {
-    hourlyContainer.appendChild(newHourInfo(weatherData.hourly[i]));
-  }
-  return hourlyContainer;
-}
+
 function populateMain(weatherData, geocodeData, type) {
+ /*  Removes any previous weather info and (re)appends the info and HTML 
+elements of the main weather section fo the site.  */
+
   getUnitType() === "metric" ? (degreeType = "C") : (degreeType = "F");
 
   const mainWeather = document.getElementById("main-weather");
@@ -119,7 +129,6 @@ function populateMain(weatherData, geocodeData, type) {
   if (document.getElementById("hourly-forecast")) {
     mainWeather.removeChild(document.getElementById("hourly-forecast"));
   }
-
   mainWeather.appendChild(currentTemp(weatherData));
   mainWeather.appendChild(currentConditions(weatherData));
   mainWeather.appendChild(placeName(geocodeData,type));

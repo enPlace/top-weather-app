@@ -1,12 +1,21 @@
+//Creates HTML elements associated with the nav bar
 import { populateFromUserLocation } from "./user-location";
-
 import { populateAllWeatherData } from ".";
 
 let unitType = "metric";
 function setUnitType(type){
   unitType = type
 }
+
+function getUnitType() {
+  return unitType;
+}
+function getDegrees() {
+  return unitType == "metric" ? "C" : "F";
+}
+
 const changeUnits = (e) => {
+  //changes the unitType and re-requests/repopulates weather info
   e.preventDefault();
   if (e.target.id === "c") unitType = "metric";
   else unitType = "imperial";
@@ -16,6 +25,7 @@ const changeUnits = (e) => {
 };
 
 function hideWeekly() {
+  //pushes down the weekly forecast on smaller screens when menu is opened
   const menuButton = document.getElementById("menu-button");
   const weekly = document.getElementById("weekly-forecast");
 
@@ -29,6 +39,7 @@ function hideWeekly() {
 }
 
 function appendSpan(parent, num) {
+  //used in creating the nav bar icon
   for (let i = 0; i < num; i++) {
     const span = document.createElement("span");
     parent.appendChild(span);
@@ -36,6 +47,7 @@ function appendSpan(parent, num) {
 }
 
 function navMenu() {
+  //creates the side menu HTML elements
   const nav = document.createElement("nav");
   nav.role = "navigation";
   const menuToggle = document.createElement("div");
@@ -87,11 +99,5 @@ function navMenu() {
   return nav;
 }
 
-function getUnitType() {
-  return unitType;
-}
-function getDegrees() {
-  return unitType == "metric" ? "C" : "F";
-}
 
 export { navMenu, getUnitType, getDegrees, setUnitType};

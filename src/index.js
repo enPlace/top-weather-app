@@ -8,10 +8,13 @@ import { populateFromUserLocation } from "./user-location";
 const searchForm = document.getElementById("search-form");
 const searchBar = document.getElementById("search-bar");
 const main = document.getElementById("main-weather");
-main.appendChild(navMenu());
-populateFromUserLocation();
+
+main.appendChild(navMenu()); //appends the menu
+
+populateFromUserLocation(); // weather from user-location data
 
 async function populateAllWeatherData() {
+  //populates weekly and current weather conditions on the page
   document.getElementById("loader-container").classList.add("active");
   try {
     const geocodeData = await geocode(searchBar.value);
