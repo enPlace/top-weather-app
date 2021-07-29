@@ -19,7 +19,6 @@ function setInitialUnitType(reverseGeocodeData) {
         break;
       }
     }
-    console.log(country);
     if (country === "United States") {
       setUnitType("imperial");
     } else {
@@ -31,17 +30,12 @@ function setInitialUnitType(reverseGeocodeData) {
 async function success(pos) {
   const crd = pos.coords;
   try {
-    console.log(crd);
-    console.log(crd.latitude, crd.longitude);
     const reverseGeocodeData = await reverseGeocode(
       crd.latitude,
       crd.longitude
     );
     setInitialUnitType(reverseGeocodeData);
     const weatherData = await getWeather(crd.latitude, crd.longitude);
-    console.log(reverseGeocodeData);
-    console.log(reverseGeocodeData.results.length);
-    console.log(weatherData);
     populateMain(weatherData, reverseGeocodeData, "local");
     populateWeeklyForecast(weatherData);
     if (document.getElementById("menu-button").classList.contains("active")) {

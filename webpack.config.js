@@ -10,6 +10,7 @@ module.exports = {
   plugins: [
     new Dotenv(),
     new webpack.DefinePlugin({
+      //for deploying
       'process.env': {
          'GEO_KEY': JSON.stringify(process.env.GEO_KEY),
          'WEATHER_KEY': JSON.stringify(process.env.WEATHER_KEY),

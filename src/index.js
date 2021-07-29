@@ -8,24 +8,18 @@ import { populateFromUserLocation } from "./user-location";
 const searchForm = document.getElementById("search-form");
 const searchBar = document.getElementById("search-bar");
 const main = document.getElementById("main-weather");
-console.log(process.env.WEATHER_KEY);
-console.log(process.env.GEO_KEY);
 main.appendChild(navMenu());
-console.log(getDegrees());
-
 populateFromUserLocation();
 
 async function populateAllWeatherData() {
   document.getElementById("loader-container").classList.add("active");
   try {
     const geocodeData = await geocode(searchBar.value);
-    console.log(geocodeData);
-    console.log(geocodeData.results[0].formatted_address);
     const weatherData = await getWeather(
       geocodeData.results[0].geometry.location.lat,
       geocodeData.results[0].geometry.location.lng
     );
-    console.log(weatherData);
+
     populateMain(weatherData, geocodeData);
     populateWeeklyForecast(weatherData);
     document.getElementById("loader-container").classList.remove("active");
