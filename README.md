@@ -1,4 +1,4 @@
-# Enplace Weather App
+# Webpack Weather App
 
 I made this project to practice making dynamic and responsive webpages, and to practice working with APIs. The project is compiled using webpack and uses three APIs: the Google Places API, Google Geocoding API, and Openweathermap's One Call API. It is deployed to Heroku using an express server. 
 
